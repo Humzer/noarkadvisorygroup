@@ -2,13 +2,15 @@ import { useState, useEffect } from "react";
 import { Menu, Search, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
-  { label: "Industries", href: "#industries" },
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "Insights", href: "#insights" },
-  { label: "Careers", href: "#careers" },
-  { label: "About Us", href: "#about" },
+  { label: "Industries", href: "/#industries" },
+  { label: "Capabilities", href: "/#capabilities" },
+  { label: "Insights", href: "/#insights" },
+  { label: "People", href: "/people" },
+  { label: "Careers", href: "/#careers" },
+  { label: "About Us", href: "/#about" },
 ];
 
 const SiteHeader = () => {
@@ -32,23 +34,33 @@ const SiteHeader = () => {
       >
         <div className="section-padding container-editorial flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <span className="font-serif text-xl md:text-2xl font-bold text-primary-foreground tracking-tight">
               Strat<span className="text-accent">Edge</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="editorial-link text-primary-foreground/80 hover:text-primary-foreground text-sm font-sans font-medium tracking-wide transition-colors duration-200"
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.href.startsWith("/") && !item.href.includes("#") ? (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="editorial-link text-primary-foreground/80 hover:text-primary-foreground text-sm font-sans font-medium tracking-wide transition-colors duration-200"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="editorial-link text-primary-foreground/80 hover:text-primary-foreground text-sm font-sans font-medium tracking-wide transition-colors duration-200"
+                >
+                  {item.label}
+                </a>
+              )
+            )}
           </nav>
 
           {/* Right actions */}
@@ -103,16 +115,27 @@ const SiteHeader = () => {
                 </button>
               </div>
               <nav className="flex flex-col gap-1 px-6 mt-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-primary-foreground/80 hover:text-primary-foreground py-3 border-b border-primary-foreground/10 text-lg font-sans transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                ))}
+                {navItems.map((item) =>
+                  item.href.startsWith("/") && !item.href.includes("#") ? (
+                    <Link
+                      key={item.label}
+                      to={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="text-primary-foreground/80 hover:text-primary-foreground py-3 border-b border-primary-foreground/10 text-lg font-sans transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="text-primary-foreground/80 hover:text-primary-foreground py-3 border-b border-primary-foreground/10 text-lg font-sans transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  )
+                )}
               </nav>
               <div className="mt-auto p-6">
                 <div className="flex items-center gap-2 text-primary-foreground/60 text-sm font-sans">
