@@ -3,6 +3,11 @@ import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
@@ -59,10 +64,10 @@ const HeroSection = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="flex flex-wrap gap-4"
           >
-            <Button variant="hero" size="xl">
+            <Button variant="hero" size="xl" onClick={() => scrollTo("footer")}>
               Contact Us
             </Button>
-            <Button variant="hero-outline" size="xl">
+            <Button variant="hero-outline" size="xl" onClick={() => scrollTo("insights")}>
               Explore Insights
             </Button>
           </motion.div>

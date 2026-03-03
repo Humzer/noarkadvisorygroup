@@ -9,7 +9,7 @@ const footerLinks = {
 };
 
 const SiteFooter = () => (
-  <footer className="bg-primary section-padding py-16 md:py-20">
+  <footer id="footer" className="bg-primary section-padding py-16 md:py-20">
     <div className="container-editorial">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
         {/* Brand column */}

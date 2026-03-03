@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Menu, Search, X, ChevronDown } from "lucide-react";
+import { Menu, Search, X, ChevronDown, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 import noarkLogo from "@/assets/noark-logo.jpeg";
 
 const navItems = [
@@ -17,6 +18,8 @@ const navItems = [
 const SiteHeader = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -68,10 +71,29 @@ const SiteHeader = () => {
               <Search size={18} />
             </button>
 
-            <div className="hidden md:flex items-center gap-1 text-primary-foreground/70 hover:text-primary-foreground cursor-pointer text-sm font-sans transition-colors">
-              <span>Kenya</span>
-              <ChevronDown size={14} />
-            </div>
+            {user ? (
+              <div className="hidden md:flex items-center gap-3">
+                <span className="text-primary-foreground/70 text-sm font-sans truncate max-w-[120px]">
+                  {user.user_metadata?.full_name || user.email?.split("@")[0]}
+                </span>
+                <button
+                  onClick={signOut}
+                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                  title="Sign out"
+                >
+                  <LogOut size={18} />
+                </button>
+              </div>
+            ) : (
+              <Button
+                variant="hero"
+                size="sm"
+                className="hidden md:inline-flex"
+                onClick={() => navigate("/auth")}
+              >
+                Sign In
+              </Button>
+            )}
 
             {/* Mobile toggle */}
             <button
@@ -135,10 +157,24 @@ const SiteHeader = () => {
                 )}
               </nav>
               <div className="mt-auto p-6">
-                <div className="flex items-center gap-2 text-primary-foreground/60 text-sm font-sans">
-                  <span>Region: Kenya</span>
-                  <ChevronDown size={14} />
-                </div>
+                {user ? (
+                  <button
+                    onClick={() => { signOut(); setMobileOpen(false); }}
+                    className="flex items-center gap-2 text-primary-foreground/60 text-sm font-sans"
+                  >
+                    <LogOut size={16} />
+                    Sign Out
+                  </button>
+                ) : (
+                  <Button
+                    variant="hero"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => { navigate("/auth"); setMobileOpen(false); }}
+                  >
+                    Sign In / Create Account
+                  </Button>
+                )}
               </div>
             </motion.div>
           </>
