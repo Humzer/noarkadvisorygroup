@@ -1,10 +1,11 @@
 import { Linkedin, Twitter } from "lucide-react";
+import noarkLogo from "@/assets/noark-logo.jpeg";
 
 const footerLinks = {
   Industries: ["Financial Services", "Healthcare", "Energy", "Technology", "Public Sector"],
   Capabilities: ["Strategy", "Digital & AI", "Sustainability", "Risk", "Operations"],
   Insights: ["Latest Articles", "Reports", "Podcasts", "Newsletters"],
-  Careers: ["Open Roles", "Life at StratEdge", "Students & Graduates"],
+  Careers: ["Open Roles", "Life at Noark", "Students & Graduates"],
 };
 
 const SiteFooter = () => (
@@ -13,11 +14,9 @@ const SiteFooter = () => (
       <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
         {/* Brand column */}
         <div className="col-span-2 md:col-span-1">
-          <span className="font-serif text-xl font-bold text-primary-foreground mb-4 block">
-            Strat<span className="text-accent">Edge</span>
-          </span>
+          <img src={noarkLogo} alt="Noark Advisory Group" className="h-10 rounded-sm mb-4" />
           <p className="text-primary-foreground/50 font-sans text-sm leading-relaxed">
-            A leading consulting firm helping organisations across East Africa
+            Strategic Foresight & Resilience. Helping organisations across East Africa
             navigate complexity and drive transformation.
           </p>
         </div>
@@ -56,7 +55,7 @@ const SiteFooter = () => (
           <a href="#" className="hover:text-primary-foreground/70 transition-colors">
             Cookie Notice
           </a>
-          <span>© 2026 StratEdge Consulting</span>
+          <span>© 2026 Noark Advisory Group</span>
         </div>
         <div className="flex gap-4">
           <a

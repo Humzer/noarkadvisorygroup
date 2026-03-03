@@ -39,15 +39,15 @@ export const leaders: Leader[] = [
     title: "Managing Partner – Kenya",
     image: leader1,
     focusAreas: ["Strategy", "Public Sector", "Infrastructure"],
-    bio: "James leads StratEdge's Kenya operations, bringing over 25 years of experience advising heads of state, CEOs, and institutional leaders across East Africa.",
+    bio: "James leads Noark's Kenya operations, bringing over 25 years of experience advising heads of state, CEOs, and institutional leaders across East Africa.",
     fullBio: [
-      "James Odhiambo is the Managing Partner of StratEdge Consulting's Kenya office. With more than 25 years of experience in strategy consulting, he has advised heads of state, Fortune 500 CEOs, and institutional leaders on some of the most consequential decisions facing the region.",
+      "James Odhiambo is the Managing Partner of Noark Advisory Group's Kenya office. With more than 25 years of experience in strategy consulting, he has advised heads of state, Fortune 500 CEOs, and institutional leaders on some of the most consequential decisions facing the region.",
       "His work spans public finance reform, infrastructure development, and large-scale organisational transformation. James is widely recognised as one of East Africa's most influential strategic advisors, having shaped policy frameworks that have impacted millions of citizens.",
-      "Before joining StratEdge, James held senior positions at leading global institutions and served as an advisor to Kenya's National Treasury. He is a frequent keynote speaker on governance, economic development, and the future of African enterprise.",
+      "Before joining Noark, James held senior positions at leading global institutions and served as an advisor to Kenya's National Treasury. He is a frequent keynote speaker on governance, economic development, and the future of African enterprise.",
       "James holds an MBA from London Business School and a degree in Economics from the University of Nairobi. He serves on the boards of several non-profit organisations focused on education and youth empowerment."
     ],
     office: "Nairobi",
-    email: "j.odhiambo@stratedge.com",
+    email: "j.odhiambo@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Corporate Strategy", "Government Advisory", "Infrastructure", "Economic Development", "Organisational Transformation"],
     highlights: [
@@ -69,15 +69,15 @@ export const leaders: Leader[] = [
     title: "Senior Partner – Digital & AI",
     image: leader2,
     focusAreas: ["Digital Transformation", "AI", "Technology Strategy"],
-    bio: "Amina leads StratEdge's Digital & AI practice, helping enterprises across Africa harness technology to drive growth, efficiency, and competitive advantage.",
+    bio: "Amina leads Noark's Digital & AI practice, helping enterprises across Africa harness technology to drive growth, efficiency, and competitive advantage.",
     fullBio: [
-      "Amina Wanjiku is a Senior Partner and the head of StratEdge's Digital & AI practice in East Africa. She is a recognised authority on digital transformation, having helped more than 40 organisations across banking, telecom, and healthcare adopt AI-driven strategies.",
+      "Amina Wanjiku is a Senior Partner and the head of Noark Advisory Group's Digital & AI practice in East Africa. She is a recognised authority on digital transformation, having helped more than 40 organisations across banking, telecom, and healthcare adopt AI-driven strategies.",
       "Her approach combines deep technical understanding with commercial pragmatism, enabling clients to move from pilot to scale with confidence. Amina has been instrumental in building Kenya's reputation as a regional technology hub.",
-      "Prior to StratEdge, Amina spent a decade at a leading Silicon Valley technology firm, where she led product strategy for emerging markets. She returned to Nairobi with a mission to accelerate Africa's digital economy.",
+      "Prior to Noark, Amina spent a decade at a leading Silicon Valley technology firm, where she led product strategy for emerging markets. She returned to Nairobi with a mission to accelerate Africa's digital economy.",
       "Amina holds a Master's in Computer Science from Stanford University and a BSc from Strathmore University. She mentors women in technology and is a board member of the East African Digital Council."
     ],
     office: "Nairobi",
-    email: "a.wanjiku@stratedge.com",
+    email: "a.wanjiku@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Artificial Intelligence", "Digital Strategy", "Data & Analytics", "Product Innovation", "Technology Operating Models"],
     highlights: [
@@ -101,13 +101,13 @@ export const leaders: Leader[] = [
     focusAreas: ["Corporate Finance", "M&A", "Private Equity"],
     bio: "Rajesh brings deep expertise in corporate finance and M&A across emerging markets, having structured over $8 billion in transactions across East and Southern Africa.",
     fullBio: [
-      "Rajesh Patel is a Senior Partner at StratEdge with over 20 years of experience in corporate finance, mergers and acquisitions, and private equity across emerging markets.",
+      "Rajesh Patel is a Senior Partner at Noark Advisory Group with over 20 years of experience in corporate finance, mergers and acquisitions, and private equity across emerging markets.",
       "He has structured and advised on more than $8 billion in transactions spanning infrastructure, energy, financial services, and technology. His clients include some of the largest conglomerates and private equity firms operating in Africa.",
       "Rajesh is known for his rigorous analytical approach and his ability to navigate complex cross-border transactions. He has been recognised as one of East Africa's top dealmakers by multiple industry publications.",
       "He holds a CFA charter, an MBA from INSEAD, and a degree in Finance from the University of Mumbai. Rajesh is an active contributor to policy discussions on capital markets development in Africa."
     ],
     office: "Nairobi",
-    email: "r.patel@stratedge.com",
+    email: "r.patel@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Mergers & Acquisitions", "Corporate Finance", "Private Equity", "Capital Markets", "Valuation & Due Diligence"],
     highlights: [
@@ -131,13 +131,13 @@ export const leaders: Leader[] = [
     focusAreas: ["Sustainability", "ESG", "Climate Strategy"],
     bio: "Grace is a leading voice on sustainability and ESG in Africa, helping corporations and governments integrate climate strategy into core operations.",
     fullBio: [
-      "Grace Muthoni is a Partner at StratEdge and leads the firm's Sustainability & ESG practice. She works with corporate boards, investors, and government agencies to embed environmental, social, and governance principles into strategy and operations.",
+      "Grace Muthoni is a Partner at Noark Advisory Group and leads the firm's Sustainability & ESG practice. She works with corporate boards, investors, and government agencies to embed environmental, social, and governance principles into strategy and operations.",
       "Grace has advised on climate strategy for some of Kenya's largest companies and has played a key role in shaping national sustainability policy. She is passionate about demonstrating that sustainable business practices drive both impact and returns.",
       "Before consulting, Grace worked with the United Nations Environment Programme in Nairobi, where she led initiatives on climate finance and green economy transitions across sub-Saharan Africa.",
       "She holds a Master's in Environmental Management from Yale University and a BSc in Environmental Science from Kenyatta University."
     ],
     office: "Nairobi",
-    email: "g.muthoni@stratedge.com",
+    email: "g.muthoni@noarkadvisory.com",
     linkedin: "#",
     expertise: ["ESG Strategy", "Climate Risk", "Sustainable Finance", "Carbon Markets", "Circular Economy"],
     highlights: [
@@ -161,13 +161,13 @@ export const leaders: Leader[] = [
     focusAreas: ["Risk Management", "Resilience", "Governance"],
     bio: "Helen is a globally recognised expert in enterprise risk management, helping institutions build resilience in an increasingly uncertain world.",
     fullBio: [
-      "Helen van der Berg is a Senior Partner at StratEdge, leading the Risk & Resilience practice. With 28 years of experience spanning Europe, Asia, and Africa, she brings a truly global perspective to risk management and institutional governance.",
+      "Helen van der Berg is a Senior Partner at Noark Advisory Group, leading the Risk & Resilience practice. With 28 years of experience spanning Europe, Asia, and Africa, she brings a truly global perspective to risk management and institutional governance.",
       "Helen specialises in helping organisations anticipate, prepare for, and respond to complex risks—from geopolitical uncertainty to cyber threats and regulatory change. Her frameworks have been adopted by central banks and regulatory bodies across multiple continents.",
-      "Prior to joining StratEdge, Helen held senior risk leadership positions at major European financial institutions and served as an advisor to the European Central Bank.",
+      "Prior to joining Noark, Helen held senior risk leadership positions at major European financial institutions and served as an advisor to the European Central Bank.",
       "Helen holds a PhD in Risk Management from the London School of Economics and is a Fellow of the Institute of Risk Management."
     ],
     office: "Nairobi",
-    email: "h.vanderberg@stratedge.com",
+    email: "h.vanderberg@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Enterprise Risk Management", "Cyber Risk", "Regulatory Strategy", "Crisis Management", "Board Governance"],
     highlights: [
@@ -191,13 +191,13 @@ export const leaders: Leader[] = [
     focusAreas: ["Public Sector", "Governance", "Service Delivery"],
     bio: "Daniel focuses on modernising public institutions, bringing private-sector discipline to government agencies to improve service delivery and citizen outcomes.",
     fullBio: [
-      "Daniel Kipchoge is a Partner at StratEdge specialising in public sector transformation and governance reform. He works with national and county governments to modernise institutions, improve service delivery, and strengthen accountability.",
+      "Daniel Kipchoge is a Partner at Noark Advisory Group specialising in public sector transformation and governance reform. He works with national and county governments to modernise institutions, improve service delivery, and strengthen accountability.",
       "His work combines deep understanding of African governance structures with global best practices in public administration. Daniel has led reform programmes across health, education, and revenue administration for multiple government clients.",
-      "Before joining StratEdge, Daniel served in Kenya's public service, where he was instrumental in designing the devolution framework and building capacity in newly created county governments.",
+      "Before joining Noark, Daniel served in Kenya's public service, where he was instrumental in designing the devolution framework and building capacity in newly created county governments.",
       "He holds a Master's in Public Administration from Harvard Kennedy School and a law degree from the University of Nairobi."
     ],
     office: "Nairobi",
-    email: "d.kipchoge@stratedge.com",
+    email: "d.kipchoge@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Government Reform", "Service Delivery", "Revenue Administration", "Devolution", "Healthcare Systems"],
     highlights: [
