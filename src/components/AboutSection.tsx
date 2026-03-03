@@ -12,7 +12,7 @@ const AboutSection = () => (
           Driving Impact Across East Africa
         </h2>
         <p className="text-muted-foreground font-sans text-lg leading-relaxed mb-6">
-          StratEdge Consulting partners with governments, corporations, and
+          Noark Advisory Group partners with governments, corporations, and
           institutions to tackle their most critical challenges. From Nairobi to
           the broader East African region, we bring world-class expertise in
           strategy, digital transformation, and organizational resilience.
@@ -29,7 +29,7 @@ const AboutSection = () => (
         <div className="relative">
           <img
             src={aboutImage}
-            alt="StratEdge team in strategic discussion"
+            alt="Noark Advisory Group team in strategic discussion"
             className="w-full h-[500px] object-cover"
             loading="lazy"
           />

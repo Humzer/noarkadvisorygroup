@@ -28,7 +28,7 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-accent font-sans text-sm tracking-[0.2em] uppercase mb-6"
           >
-            StratEdge in Kenya
+            Noark Advisory Group in Kenya
           </motion.p>
 
           <motion.h1

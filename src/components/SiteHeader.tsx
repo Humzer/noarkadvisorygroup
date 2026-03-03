@@ -3,6 +3,7 @@ import { Menu, Search, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import noarkLogo from "@/assets/noark-logo.jpeg";
 
 const navItems = [
   { label: "Industries", href: "/#industries" },
@@ -35,9 +36,7 @@ const SiteHeader = () => {
         <div className="section-padding container-editorial flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-serif text-xl md:text-2xl font-bold text-primary-foreground tracking-tight">
-              Strat<span className="text-accent">Edge</span>
-            </span>
+            <img src={noarkLogo} alt="Noark Advisory Group" className="h-8 md:h-10 rounded-sm" />
           </Link>
 
           {/* Desktop Nav */}
@@ -104,9 +103,7 @@ const SiteHeader = () => {
               className="fixed top-0 right-0 bottom-0 w-80 bg-primary z-50 flex flex-col"
             >
               <div className="flex items-center justify-between p-6">
-                <span className="font-serif text-xl font-bold text-primary-foreground">
-                  Strat<span className="text-accent">Edge</span>
-                </span>
+                <img src={noarkLogo} alt="Noark Advisory Group" className="h-8 rounded-sm" />
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="text-primary-foreground"

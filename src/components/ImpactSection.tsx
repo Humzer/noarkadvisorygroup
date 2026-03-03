@@ -35,7 +35,7 @@ const ImpactSection = () => (
               Empowering Rural Communities Through Infrastructure Innovation
             </h3>
             <p className="text-primary-foreground/60 font-sans leading-relaxed mb-6">
-              Working alongside county governments in Western Kenya, StratEdge
+              Working alongside county governments in Western Kenya, Noark Advisory Group
               helped design a community-led infrastructure programme that has
               improved access to clean water for over 200,000 residents.
             </p>
