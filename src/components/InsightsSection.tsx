@@ -7,23 +7,23 @@ import insight3 from "@/assets/insight-3.jpg";
 const insights = [
   {
     category: "Digital & AI",
-    title: "How East African Enterprises Can Leapfrog with AI",
+    title: "How Global Enterprises Can Leapfrog with AI",
     description:
       "A framework for leaders to accelerate digital adoption and build AI-ready organizations.",
     image: insight1,
   },
   {
     category: "Sustainability",
-    title: "The Green Transition: Opportunities for Kenya's Private Sector",
+    title: "The Green Transition: Opportunities for the Private Sector",
     description:
-      "Exploring how ESG frameworks create competitive advantage in emerging markets.",
+      "Exploring how ESG frameworks create competitive advantage in emerging and developed markets.",
     image: insight2,
   },
   {
     category: "Public Sector",
     title: "Reimagining Public Service Delivery in the Digital Age",
     description:
-      "How governments across Africa are modernizing citizen services through technology.",
+      "How governments worldwide are modernizing citizen services through technology.",
     image: insight3,
   },
 ];

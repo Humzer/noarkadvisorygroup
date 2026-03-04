@@ -1,4 +1,4 @@
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin, Twitter, MessageCircle } from "lucide-react";
 import noarkLogo from "@/assets/noark-logo.jpeg";
 
 const footerLinks = {
@@ -15,10 +15,23 @@ const SiteFooter = () => (
         {/* Brand column */}
         <div className="col-span-2 md:col-span-1">
           <img src={noarkLogo} alt="Noark Advisory Group" className="h-10 rounded-sm mb-4" />
-          <p className="text-primary-foreground/50 font-sans text-sm leading-relaxed">
-            Strategic Foresight & Resilience. Helping organisations across East Africa
+          <p className="text-primary-foreground/50 font-sans text-sm leading-relaxed mb-4">
+            Strategic Foresight & Resilience. Helping organisations worldwide
             navigate complexity and drive transformation.
           </p>
+          <div className="text-primary-foreground/50 font-sans text-sm leading-relaxed space-y-1">
+            <p>Via Piero della Francesc, 95</p>
+            <p>Perugia, Italy</p>
+          </div>
+          <a
+            href="https://wa.me/392520024587"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-accent font-sans text-sm mt-4 hover:text-accent/80 transition-colors"
+          >
+            <MessageCircle size={16} />
+            Contact us on WhatsApp
+          </a>
         </div>
 
         {/* Link columns */}
