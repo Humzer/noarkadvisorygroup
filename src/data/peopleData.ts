@@ -36,17 +36,17 @@ export const leaders: Leader[] = [
   {
     id: "james-odhiambo",
     name: "James Odhiambo",
-    title: "Managing Partner – Kenya",
+    title: "Managing Partner",
     image: leader1,
     focusAreas: ["Strategy", "Public Sector", "Infrastructure"],
-    bio: "James leads Noark's Kenya operations, bringing over 25 years of experience advising heads of state, CEOs, and institutional leaders across East Africa.",
+    bio: "James leads Noark's global operations, bringing over 25 years of experience advising heads of state, CEOs, and institutional leaders worldwide.",
     fullBio: [
       "James Odhiambo is the Managing Partner of Noark Advisory Group's Kenya office. With more than 25 years of experience in strategy consulting, he has advised heads of state, Fortune 500 CEOs, and institutional leaders on some of the most consequential decisions facing the region.",
       "His work spans public finance reform, infrastructure development, and large-scale organisational transformation. James is widely recognised as one of East Africa's most influential strategic advisors, having shaped policy frameworks that have impacted millions of citizens.",
       "Before joining Noark, James held senior positions at leading global institutions and served as an advisor to Kenya's National Treasury. He is a frequent keynote speaker on governance, economic development, and the future of African enterprise.",
       "James holds an MBA from London Business School and a degree in Economics from the University of Nairobi. He serves on the boards of several non-profit organisations focused on education and youth empowerment."
     ],
-    office: "Nairobi",
+    office: "Perugia",
     email: "j.odhiambo@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Corporate Strategy", "Government Advisory", "Infrastructure", "Economic Development", "Organisational Transformation"],
@@ -69,14 +69,14 @@ export const leaders: Leader[] = [
     title: "Senior Partner – Digital & AI",
     image: leader2,
     focusAreas: ["Digital Transformation", "AI", "Technology Strategy"],
-    bio: "Amina leads Noark's Digital & AI practice, helping enterprises across Africa harness technology to drive growth, efficiency, and competitive advantage.",
+    bio: "Amina leads Noark's Digital & AI practice, helping enterprises worldwide harness technology to drive growth, efficiency, and competitive advantage.",
     fullBio: [
       "Amina Wanjiku is a Senior Partner and the head of Noark Advisory Group's Digital & AI practice in East Africa. She is a recognised authority on digital transformation, having helped more than 40 organisations across banking, telecom, and healthcare adopt AI-driven strategies.",
       "Her approach combines deep technical understanding with commercial pragmatism, enabling clients to move from pilot to scale with confidence. Amina has been instrumental in building Kenya's reputation as a regional technology hub.",
       "Prior to Noark, Amina spent a decade at a leading Silicon Valley technology firm, where she led product strategy for emerging markets. She returned to Nairobi with a mission to accelerate Africa's digital economy.",
       "Amina holds a Master's in Computer Science from Stanford University and a BSc from Strathmore University. She mentors women in technology and is a board member of the East African Digital Council."
     ],
-    office: "Nairobi",
+    office: "Perugia",
     email: "a.wanjiku@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Artificial Intelligence", "Digital Strategy", "Data & Analytics", "Product Innovation", "Technology Operating Models"],
@@ -106,7 +106,7 @@ export const leaders: Leader[] = [
       "Rajesh is known for his rigorous analytical approach and his ability to navigate complex cross-border transactions. He has been recognised as one of East Africa's top dealmakers by multiple industry publications.",
       "He holds a CFA charter, an MBA from INSEAD, and a degree in Finance from the University of Mumbai. Rajesh is an active contributor to policy discussions on capital markets development in Africa."
     ],
-    office: "Nairobi",
+    office: "Milan",
     email: "r.patel@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Mergers & Acquisitions", "Corporate Finance", "Private Equity", "Capital Markets", "Valuation & Due Diligence"],
@@ -136,7 +136,7 @@ export const leaders: Leader[] = [
       "Before consulting, Grace worked with the United Nations Environment Programme in Nairobi, where she led initiatives on climate finance and green economy transitions across sub-Saharan Africa.",
       "She holds a Master's in Environmental Management from Yale University and a BSc in Environmental Science from Kenyatta University."
     ],
-    office: "Nairobi",
+    office: "London",
     email: "g.muthoni@noarkadvisory.com",
     linkedin: "#",
     expertise: ["ESG Strategy", "Climate Risk", "Sustainable Finance", "Carbon Markets", "Circular Economy"],
@@ -166,7 +166,7 @@ export const leaders: Leader[] = [
       "Prior to joining Noark, Helen held senior risk leadership positions at major European financial institutions and served as an advisor to the European Central Bank.",
       "Helen holds a PhD in Risk Management from the London School of Economics and is a Fellow of the Institute of Risk Management."
     ],
-    office: "Nairobi",
+    office: "Amsterdam",
     email: "h.vanderberg@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Enterprise Risk Management", "Cyber Risk", "Regulatory Strategy", "Crisis Management", "Board Governance"],
@@ -196,7 +196,7 @@ export const leaders: Leader[] = [
       "Before joining Noark, Daniel served in Kenya's public service, where he was instrumental in designing the devolution framework and building capacity in newly created county governments.",
       "He holds a Master's in Public Administration from Harvard Kennedy School and a law degree from the University of Nairobi."
     ],
-    office: "Nairobi",
+    office: "Perugia",
     email: "d.kipchoge@noarkadvisory.com",
     linkedin: "#",
     expertise: ["Government Reform", "Service Delivery", "Revenue Administration", "Devolution", "Healthcare Systems"],
@@ -216,16 +216,16 @@ export const leaders: Leader[] = [
 ];
 
 export const teamMembers: TeamMember[] = [
-  { id: "tm-1", name: "Sarah Kimani", role: "Principal", practiceArea: "Strategy", industry: "Financial Services", office: "Nairobi", image: leader4 },
-  { id: "tm-2", name: "Peter Njoroge", role: "Associate Partner", practiceArea: "Digital & AI", industry: "Technology", office: "Nairobi", image: leader6 },
-  { id: "tm-3", name: "Fatima Hassan", role: "Principal", practiceArea: "Sustainability", industry: "Energy", office: "Mombasa", image: leader2 },
-  { id: "tm-4", name: "Michael Omondi", role: "Senior Associate", practiceArea: "Public Sector", industry: "Government", office: "Nairobi", image: leader1 },
-  { id: "tm-5", name: "Priya Sharma", role: "Associate Partner", practiceArea: "Corporate Finance", industry: "Financial Services", office: "Nairobi", image: leader5 },
-  { id: "tm-6", name: "Thomas Kariuki", role: "Principal", practiceArea: "Risk & Resilience", industry: "Healthcare", office: "Nairobi", image: leader3 },
-  { id: "tm-7", name: "Lilian Achieng", role: "Senior Associate", practiceArea: "Digital & AI", industry: "Retail", office: "Kisumu", image: leader4 },
-  { id: "tm-8", name: "David Mutua", role: "Principal", practiceArea: "Strategy", industry: "Infrastructure", office: "Nairobi", image: leader6 },
+  { id: "tm-1", name: "Sarah Kimani", role: "Principal", practiceArea: "Strategy", industry: "Financial Services", office: "Perugia", image: leader4 },
+  { id: "tm-2", name: "Peter Njoroge", role: "Associate Partner", practiceArea: "Digital & AI", industry: "Technology", office: "Milan", image: leader6 },
+  { id: "tm-3", name: "Fatima Hassan", role: "Principal", practiceArea: "Sustainability", industry: "Energy", office: "London", image: leader2 },
+  { id: "tm-4", name: "Michael Omondi", role: "Senior Associate", practiceArea: "Public Sector", industry: "Government", office: "Perugia", image: leader1 },
+  { id: "tm-5", name: "Priya Sharma", role: "Associate Partner", practiceArea: "Corporate Finance", industry: "Financial Services", office: "Amsterdam", image: leader5 },
+  { id: "tm-6", name: "Thomas Kariuki", role: "Principal", practiceArea: "Risk & Resilience", industry: "Healthcare", office: "London", image: leader3 },
+  { id: "tm-7", name: "Lilian Achieng", role: "Senior Associate", practiceArea: "Digital & AI", industry: "Retail", office: "Milan", image: leader4 },
+  { id: "tm-8", name: "David Mutua", role: "Principal", practiceArea: "Strategy", industry: "Infrastructure", office: "Perugia", image: leader6 },
 ];
 
 export const practiceAreas = ["All", "Strategy", "Digital & AI", "Sustainability", "Public Sector", "Corporate Finance", "Risk & Resilience"];
 export const industries = ["All", "Financial Services", "Technology", "Energy", "Government", "Healthcare", "Retail", "Infrastructure"];
-export const offices = ["All", "Nairobi", "Mombasa", "Kisumu"];
+export const offices = ["All", "Perugia", "Milan", "London", "Amsterdam"];
