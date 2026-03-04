@@ -9,19 +9,20 @@ const AboutSection = () => (
           Who We Are
         </p>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-tight mb-6">
-          Driving Impact Across East Africa
+          Driving Impact Across the Globe
         </h2>
         <p className="text-muted-foreground font-sans text-lg leading-relaxed mb-6">
           Noark Advisory Group partners with governments, corporations, and
-          institutions to tackle their most critical challenges. From Nairobi to
-          the broader East African region, we bring world-class expertise in
-          strategy, digital transformation, and organizational resilience.
+          institutions worldwide to tackle their most critical challenges. From our
+          headquarters in Perugia, Italy, we bring world-class expertise in
+          strategy, digital transformation, and organizational resilience to
+          clients across Europe, Africa, the Middle East, and beyond.
         </p>
         <p className="text-muted-foreground font-sans leading-relaxed">
           Our consultants combine deep local knowledge with global best
           practices, helping our clients navigate complexity and deliver
           measurable, lasting results. We believe in building capacity, not
-          dependency—empowering the next generation of African leaders.
+          dependency—empowering the next generation of leaders everywhere.
         </p>
       </ScrollReveal>
 

@@ -14,7 +14,7 @@ const CareersSection = () => (
         </h2>
         <p className="text-muted-foreground font-sans text-lg leading-relaxed mb-8">
           Join a team of exceptional thinkers and doers who are shaping the
-          future of business and society across East Africa. We invest in your
+          future of business and society across the globe. We invest in your
           growth, challenge your thinking, and give you the platform to make a
           real difference.
         </p>

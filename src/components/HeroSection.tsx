@@ -14,7 +14,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <motion.img
           src={heroBg}
-          alt="Nairobi skyline at dusk"
+          alt="Global business skyline"
           className="w-full h-full object-cover"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -33,7 +33,7 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-accent font-sans text-sm tracking-[0.2em] uppercase mb-6"
           >
-            Noark Advisory Group in Kenya
+            Noark Advisory Group — Global Reach
           </motion.p>
 
           <motion.h1
@@ -53,7 +53,7 @@ const HeroSection = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="text-primary-foreground/70 font-sans text-lg md:text-xl leading-relaxed mb-10 max-w-xl"
           >
-            We partner with visionary leaders across East Africa to drive
+            We partner with visionary leaders worldwide to drive
             transformation, unlock growth, and build resilient institutions for
             generations to come.
           </motion.p>
@@ -64,7 +64,11 @@ const HeroSection = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="flex flex-wrap gap-4"
           >
-            <Button variant="hero" size="xl" onClick={() => scrollTo("footer")}>
+            <Button
+              variant="hero"
+              size="xl"
+              onClick={() => window.open("https://wa.me/392520024587", "_blank")}
+            >
               Contact Us
             </Button>
             <Button variant="hero-outline" size="xl" onClick={() => scrollTo("insights")}>

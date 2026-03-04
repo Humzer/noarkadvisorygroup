@@ -32,12 +32,12 @@ const ImpactSection = () => (
               Featured Story
             </span>
             <h3 className="font-serif text-2xl md:text-3xl font-bold text-primary-foreground mb-4 leading-snug">
-              Empowering Rural Communities Through Infrastructure Innovation
+              Empowering Communities Through Infrastructure Innovation
             </h3>
             <p className="text-primary-foreground/60 font-sans leading-relaxed mb-6">
-              Working alongside county governments in Western Kenya, Noark Advisory Group
-              helped design a community-led infrastructure programme that has
-              improved access to clean water for over 200,000 residents.
+              Working alongside governments worldwide, Noark Advisory Group
+              helped design community-led infrastructure programmes that have
+              improved access to clean water for over 200,000 residents across multiple regions.
             </p>
             <a
               href="#"
@@ -56,12 +56,12 @@ const ImpactSection = () => (
           {
             image: insight1,
             title: "Digital Identity Systems for Financial Inclusion",
-            desc: "Partnering with Kenya's financial regulators to build inclusive digital identity frameworks.",
+            desc: "Partnering with financial regulators globally to build inclusive digital identity frameworks.",
           },
           {
             image: insight2,
-            title: "Accelerating Kenya's Renewable Energy Transition",
-            desc: "Advisory support for East Africa's largest solar and wind energy investment programme.",
+            title: "Accelerating the Renewable Energy Transition",
+            desc: "Advisory support for large-scale solar and wind energy investment programmes across emerging markets.",
           },
         ].map((story, i) => (
           <ScrollReveal key={story.title} delay={i * 0.15}>
