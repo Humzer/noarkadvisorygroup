@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import noarkLogo from "@/assets/noark-logo.jpeg";
 
 const footerLinks = {
@@ -69,20 +69,6 @@ const SiteFooter = () => (
             Cookie Notice
           </a>
           <span>© 2026 Noark Advisory Group</span>
-        </div>
-        <div className="flex gap-4">
-          <a
-            href="#"
-            className="text-primary-foreground/40 hover:text-accent transition-colors"
-          >
-            <Linkedin size={18} />
-          </a>
-          <a
-            href="#"
-            className="text-primary-foreground/40 hover:text-accent transition-colors"
-          >
-            <Twitter size={18} />
-          </a>
         </div>
       </div>
     </div>
