@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import AdminSettings from "@/components/AdminSettings";
 import noarkLogo from "@/assets/noark-logo.jpeg";
 
 const navItems = [
@@ -66,7 +67,8 @@ const SiteHeader = () => {
           </nav>
 
           {/* Right actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <AdminSettings />
             {user ? (
               <div className="hidden md:flex items-center gap-3">
                 <span className="text-primary-foreground/70 text-sm font-sans truncate max-w-[120px]">
