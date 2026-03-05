@@ -67,7 +67,7 @@ const HeroSection = () => {
             <Button
               variant="hero"
               size="xl"
-              onClick={() => window.open("https://wa.me/392520024587", "_blank")}
+              onClick={() => window.open("https://wa.me/393520024587", "_blank")}
             >
               Contact Us
             </Button>

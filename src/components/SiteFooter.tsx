@@ -24,7 +24,7 @@ const SiteFooter = () => (
             <p>Perugia, Italy</p>
           </div>
           <a
-            href="https://wa.me/392520024587"
+            href="https://wa.me/393520024587"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-accent font-sans text-sm mt-4 hover:text-accent/80 transition-colors"
