@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, Search, X, ChevronDown, User, LogOut } from "lucide-react";
+import { Menu, X, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -67,10 +67,6 @@ const SiteHeader = () => {
 
           {/* Right actions */}
           <div className="flex items-center gap-4">
-            <button className="text-primary-foreground/70 hover:text-primary-foreground transition-colors hidden md:block">
-              <Search size={18} />
-            </button>
-
             {user ? (
               <div className="hidden md:flex items-center gap-3">
                 <span className="text-primary-foreground/70 text-sm font-sans truncate max-w-[120px]">
