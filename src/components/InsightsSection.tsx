@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { ArrowRight, Upload, Trash2, Plus, X, FileText, Eye } from "lucide-react";
+import { ArrowRight, Upload, Trash2, Plus, X, FileText, Eye, ImagePlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,6 +20,7 @@ interface Insight {
   file_name: string;
   created_at: string;
   uploaded_by: string | null;
+  cover_image_url: string | null;
   image?: string;
 }
 
@@ -33,6 +34,7 @@ const defaultInsights: Insight[] = [
     file_name: "sample-report.pdf",
     created_at: "2026-02-15",
     uploaded_by: null,
+    cover_image_url: null,
     image: insight1,
   },
   {
@@ -44,6 +46,7 @@ const defaultInsights: Insight[] = [
     file_name: "sample-report.pdf",
     created_at: "2026-01-20",
     uploaded_by: null,
+    cover_image_url: null,
     image: insight2,
   },
   {
@@ -55,6 +58,7 @@ const defaultInsights: Insight[] = [
     file_name: "sample-report.pdf",
     created_at: "2025-12-10",
     uploaded_by: null,
+    cover_image_url: null,
     image: insight3,
   },
 ];
@@ -77,6 +81,8 @@ const InsightsSection = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("General");
   const [file, setFile] = useState<File | null>(null);
+  const [coverFile, setCoverFile] = useState<File | null>(null);
+  const [coverPreview, setCoverPreview] = useState<string | null>(null);
   const [viewingPdf, setViewingPdf] = useState<Insight | null>(null);
 
   const allInsights = [...dbInsights, ...defaultInsights];
@@ -92,11 +98,22 @@ const InsightsSection = () => {
       .order("created_at", { ascending: false });
     if (data) {
       setDbInsights(
-        data.map((r) => ({
+        data.map((r: any) => ({
           ...r,
-          image: categoryImages[r.category] || insight2,
+          image: r.cover_image_url || categoryImages[r.category] || insight2,
         }))
       );
+    }
+  };
+
+  const handleCoverSelect = (f: File | null) => {
+    setCoverFile(f);
+    if (f) {
+      const reader = new FileReader();
+      reader.onload = (e) => setCoverPreview(e.target?.result as string);
+      reader.readAsDataURL(f);
+    } else {
+      setCoverPreview(null);
     }
   };
 
@@ -104,6 +121,7 @@ const InsightsSection = () => {
     if (!file || !title.trim() || !user) return;
     setUploading(true);
     try {
+      // Upload PDF
       const filePath = `${user.id}/${Date.now()}-${file.name}`;
       const { error: uploadError } = await supabase.storage
         .from("resources")
@@ -114,6 +132,20 @@ const InsightsSection = () => {
         .from("resources")
         .getPublicUrl(filePath);
 
+      // Upload cover image if provided
+      let coverUrl: string | null = null;
+      if (coverFile) {
+        const coverPath = `${user.id}/covers/${Date.now()}-${coverFile.name}`;
+        const { error: coverError } = await supabase.storage
+          .from("resources")
+          .upload(coverPath, coverFile, { contentType: coverFile.type });
+        if (coverError) throw coverError;
+        const { data: coverData } = supabase.storage
+          .from("resources")
+          .getPublicUrl(coverPath);
+        coverUrl = coverData.publicUrl;
+      }
+
       const { error: insertError } = await supabase.from("resources").insert({
         title: title.trim(),
         description: description.trim() || null,
@@ -121,25 +153,21 @@ const InsightsSection = () => {
         file_url: urlData.publicUrl,
         file_name: file.name,
         uploaded_by: user.id,
+        cover_image_url: coverUrl,
       });
       if (insertError) throw insertError;
 
-      toast({
-        title: "Insight published",
-        description: "Your PDF has been added to Featured Insights.",
-      });
+      toast({ title: "Insight published", description: "Your PDF has been added to Featured Insights." });
       setTitle("");
       setDescription("");
       setCategory("General");
       setFile(null);
+      setCoverFile(null);
+      setCoverPreview(null);
       setShowUpload(false);
       fetchInsights();
     } catch (err: any) {
-      toast({
-        title: "Upload failed",
-        description: err.message,
-        variant: "destructive",
-      });
+      toast({ title: "Upload failed", description: err.message, variant: "destructive" });
     } finally {
       setUploading(false);
     }
@@ -151,9 +179,39 @@ const InsightsSection = () => {
     if (pathMatch) {
       await supabase.storage.from("resources").remove([pathMatch[1]]);
     }
+    if (insight.cover_image_url) {
+      const coverMatch = insight.cover_image_url.match(/resources\/(.+)$/);
+      if (coverMatch) {
+        await supabase.storage.from("resources").remove([coverMatch[1]]);
+      }
+    }
     await supabase.from("resources").delete().eq("id", insight.id);
     toast({ title: "Insight removed" });
     fetchInsights();
+  };
+
+  const handleCoverChange = async (insight: Insight) => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.onchange = async (e) => {
+      const f = (e.target as HTMLInputElement).files?.[0];
+      if (!f || !user) return;
+      try {
+        const coverPath = `${user.id}/covers/${Date.now()}-${f.name}`;
+        const { error } = await supabase.storage
+          .from("resources")
+          .upload(coverPath, f, { contentType: f.type });
+        if (error) throw error;
+        const { data } = supabase.storage.from("resources").getPublicUrl(coverPath);
+        await supabase.from("resources").update({ cover_image_url: data.publicUrl }).eq("id", insight.id);
+        toast({ title: "Cover updated" });
+        fetchInsights();
+      } catch (err: any) {
+        toast({ title: "Failed to update cover", description: err.message, variant: "destructive" });
+      }
+    };
+    input.click();
   };
 
   return (
@@ -207,10 +265,21 @@ const InsightsSection = () => {
                   <Label htmlFor="insight-desc">Description</Label>
                   <Input id="insight-desc" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Brief summary of the insight" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="insight-file">PDF File *</Label>
-                  <Input id="insight-file" type="file" accept=".pdf" onChange={(e) => setFile(e.target.files?.[0] || null)} />
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="insight-file">PDF File *</Label>
+                    <Input id="insight-file" type="file" accept=".pdf" onChange={(e) => setFile(e.target.files?.[0] || null)} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="insight-cover">Cover Image (optional)</Label>
+                    <Input id="insight-cover" type="file" accept="image/*" onChange={(e) => handleCoverSelect(e.target.files?.[0] || null)} />
+                  </div>
                 </div>
+                {coverPreview && (
+                  <div className="w-32 h-20 rounded overflow-hidden border border-border">
+                    <img src={coverPreview} alt="Cover preview" className="w-full h-full object-cover" />
+                  </div>
+                )}
                 <Button variant="corporate" onClick={handleUpload} disabled={uploading || !file || !title.trim()}>
                   <Upload size={16} className="mr-2" />
                   {uploading ? "Publishing…" : "Publish Insight"}
@@ -238,6 +307,15 @@ const InsightsSection = () => {
                       <Eye size={12} />
                       View PDF
                     </div>
+                    {isAdmin && item.uploaded_by && (
+                      <button
+                        onClick={(e) => { e.stopPropagation(); handleCoverChange(item); }}
+                        className="absolute top-3 right-3 bg-primary/70 text-primary-foreground p-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-primary/90"
+                        title="Change cover image"
+                      >
+                        <ImagePlus size={14} />
+                      </button>
+                    )}
                   </div>
                   <div className="p-6 flex flex-col flex-1">
                     <span className="text-accent font-sans text-xs tracking-[0.15em] uppercase font-semibold mb-3">
@@ -281,7 +359,6 @@ const InsightsSection = () => {
             onClick={() => setViewingPdf(null)}
           />
           <div className="relative w-[95vw] h-[90vh] max-w-5xl bg-card rounded-lg shadow-2xl overflow-hidden flex flex-col z-10">
-            {/* Header */}
             <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-secondary">
               <div className="flex items-center gap-3 min-w-0">
                 <FileText size={18} className="text-accent shrink-0" />
@@ -308,7 +385,6 @@ const InsightsSection = () => {
                 </button>
               </div>
             </div>
-            {/* PDF Embed */}
             <div className="flex-1">
               <iframe
                 src={viewingPdf.file_url}

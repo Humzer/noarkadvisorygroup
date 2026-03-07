@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { Menu, X, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import AdminSettings from "@/components/AdminSettings";
+import SubscribeDialog from "@/components/SubscribeDialog";
 import noarkLogo from "@/assets/noark-logo.jpeg";
 
 const navItems = [
@@ -38,12 +39,10 @@ const SiteHeader = () => {
         }`}
       >
         <div className="section-padding container-editorial flex items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img src={noarkLogo} alt="Noark Advisory Group" className="h-8 md:h-10 rounded-sm" />
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) =>
               item.href.startsWith("/") && !item.href.includes("#") ? (
@@ -66,9 +65,9 @@ const SiteHeader = () => {
             )}
           </nav>
 
-          {/* Right actions */}
           <div className="flex items-center gap-3">
             <AdminSettings />
+            <SubscribeDialog variant="header" />
             {user ? (
               <div className="hidden md:flex items-center gap-3">
                 <span className="text-primary-foreground/70 text-sm font-sans truncate max-w-[120px]">
@@ -93,7 +92,6 @@ const SiteHeader = () => {
               </Button>
             )}
 
-            {/* Mobile toggle */}
             <button
               className="lg:hidden text-primary-foreground"
               onClick={() => setMobileOpen(true)}
@@ -104,7 +102,6 @@ const SiteHeader = () => {
         </div>
       </header>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -154,7 +151,8 @@ const SiteHeader = () => {
                   )
                 )}
               </nav>
-              <div className="mt-auto p-6">
+              <div className="mt-auto p-6 space-y-3">
+                <SubscribeDialog variant="footer" />
                 {user ? (
                   <button
                     onClick={() => { signOut(); setMobileOpen(false); }}
