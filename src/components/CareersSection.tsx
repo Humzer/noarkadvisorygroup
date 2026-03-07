@@ -18,7 +18,11 @@ const CareersSection = () => (
           growth, challenge your thinking, and give you the platform to make a
           real difference.
         </p>
-        <Button variant="corporate" size="lg">
+        <Button
+          variant="corporate"
+          size="lg"
+          onClick={() => window.open("https://wa.me/393520024587?text=Hi%2C%20I'm%20interested%20in%20career%20opportunities%20at%20Noark%20Advisory%20Group.", "_blank")}
+        >
           Explore Opportunities
         </Button>
       </ScrollReveal>
