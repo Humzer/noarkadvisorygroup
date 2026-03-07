@@ -39,13 +39,6 @@ const ImpactSection = () => (
               helped design community-led infrastructure programmes that have
               improved access to clean water for over 200,000 residents across multiple regions.
             </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 text-accent font-sans text-sm font-medium editorial-link"
-            >
-              Read Full Story
-              <ArrowRight size={14} />
-            </a>
           </div>
         </div>
       </ScrollReveal>
