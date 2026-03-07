@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import People from "./pages/People";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 const queryClient = new QueryClient();
 
@@ -20,9 +21,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/people" element={<People />} />
           <Route path="/auth" element={<Auth />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <WhatsAppFloat />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
