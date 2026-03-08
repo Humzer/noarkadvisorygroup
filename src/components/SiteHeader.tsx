@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import AdminSettings from "@/components/AdminSettings";
 import SubscribeDialog from "@/components/SubscribeDialog";
+import SignOutDialog from "@/components/SignOutDialog";
 import noarkLogo from "@/assets/noark-logo.jpeg";
 
 const navItems = [
@@ -73,13 +74,14 @@ const SiteHeader = () => {
                 <span className="text-primary-foreground/70 text-sm font-sans truncate max-w-[120px]">
                   {user.user_metadata?.full_name || user.email?.split("@")[0]}
                 </span>
-                <button
-                  onClick={signOut}
-                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  title="Sign out"
-                >
-                  <LogOut size={18} />
-                </button>
+                <SignOutDialog onConfirm={signOut}>
+                  <button
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    title="Sign out"
+                  >
+                    <LogOut size={18} />
+                  </button>
+                </SignOutDialog>
               </div>
             ) : (
               <Button
@@ -154,13 +156,12 @@ const SiteHeader = () => {
               <div className="mt-auto p-6 space-y-3">
                 <SubscribeDialog variant="footer" />
                 {user ? (
-                  <button
-                    onClick={() => { signOut(); setMobileOpen(false); }}
-                    className="flex items-center gap-2 text-primary-foreground/60 text-sm font-sans"
-                  >
-                    <LogOut size={16} />
-                    Sign Out
-                  </button>
+                  <SignOutDialog onConfirm={() => { signOut(); setMobileOpen(false); }}>
+                    <button className="flex items-center gap-2 text-primary-foreground/60 text-sm font-sans">
+                      <LogOut size={16} />
+                      Sign Out
+                    </button>
+                  </SignOutDialog>
                 ) : (
                   <Button
                     variant="hero"
