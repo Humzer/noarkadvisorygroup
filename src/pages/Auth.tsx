@@ -50,7 +50,7 @@ const Auth = () => {
         if (error) throw error;
         toast({
           title: "Account created!",
-          description: "You can now sign in with your credentials.",
+          description: "Your account is ready. You can now sign in.",
         });
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -93,7 +93,8 @@ const Auth = () => {
             <span className="italic font-normal">&amp; Resilience.</span>
           </h2>
           <p className="text-primary-foreground/60 font-sans text-base leading-relaxed">
-            Join East Africa's premier advisory community. Access exclusive insights,
+            Join a global advisory community driving transformation across
+            Europe, Africa, the Middle East, and beyond. Access exclusive insights,
             connect with industry leaders, and shape the future of strategy.
           </p>
         </div>
