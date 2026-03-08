@@ -3,6 +3,7 @@ import { Shield, Settings, X, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAdmin } from "@/hooks/useAdmin";
+import SignOutDialog from "@/components/SignOutDialog";
 
 const AdminSettings = () => {
   const { user, isAdmin, signOut } = useAdmin();
@@ -77,15 +78,12 @@ const AdminSettings = () => {
                   </div>
                 </div>
 
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full"
-                  onClick={() => { signOut(); setOpen(false); }}
-                >
-                  <LogOut size={14} className="mr-2" />
-                  Sign Out
-                </Button>
+                <SignOutDialog onConfirm={() => { signOut(); setOpen(false); }}>
+                  <Button variant="outline" size="sm" className="w-full">
+                    <LogOut size={14} className="mr-2" />
+                    Sign Out
+                  </Button>
+                </SignOutDialog>
               </div>
             </motion.div>
           </>
