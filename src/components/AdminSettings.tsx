@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAdmin } from "@/hooks/useAdmin";
 import SignOutDialog from "@/components/SignOutDialog";
-import { useAdmin } from "@/hooks/useAdmin";
 
 const AdminSettings = () => {
   const { user, isAdmin, signOut } = useAdmin();
