@@ -1,7 +1,6 @@
-import leader1 from "@/assets/leader-1.jpg";
-import leader2 from "@/assets/leader-2.jpg";
-import leader3 from "@/assets/leader-3.jpg";
+import shuaib from "@/assets/shuaib.jpeg";
 import hamza from "@/assets/hamza.jpeg";
+import yahya from "@/assets/yahya.jpeg";
 
 export interface Leader {
   id: string;
@@ -32,33 +31,33 @@ export interface TeamMember {
 
 export const leaders: Leader[] = [
   {
-    id: "james-odhiambo",
-    name: "James Odhiambo",
-    title: "Managing Partner",
-    image: leader1,
-    focusAreas: ["Strategy", "Public Sector", "Infrastructure"],
-    bio: "James leads Noark's global operations, bringing over 25 years of experience advising heads of state, CEOs, and institutional leaders worldwide.",
+    id: "shuaib-yussuf-sharif",
+    name: "Shuaib Yussuf Sharif",
+    title: "Co-Founder & Managing Partner",
+    image: shuaib,
+    focusAreas: ["Finance", "Statistics", "Quantitative Economics"],
+    bio: "Shuaib is the co-founder of Noark Advisory Group, bringing deep expertise in statistics, financial consulting, and quantitative methods for economics to guide the firm's strategic vision.",
     fullBio: [
-      "James Odhiambo is the Managing Partner of Noark Advisory Group. With more than 25 years of experience in strategy consulting, he has advised heads of state, Fortune 500 CEOs, and institutional leaders on some of the most consequential decisions facing organisations globally.",
-      "His work spans public finance reform, infrastructure development, and large-scale organisational transformation. James is widely recognised as one of the most influential strategic advisors in the field.",
-      "Before joining Noark, James held senior positions at leading global institutions and served as an advisor to multiple national treasuries. He is a frequent keynote speaker on governance, economic development, and enterprise transformation.",
-      "James holds an MBA from London Business School and a degree in Economics from the University of Nairobi. He serves on the boards of several non-profit organisations focused on education and youth empowerment."
+      "Shuaib Yussuf Sharif is the Co-Founder and Managing Partner of Noark Advisory Group. A skilled statistician and finance consultant, he combines rigorous quantitative analysis with strategic foresight to deliver transformative outcomes for clients across multiple sectors.",
+      "His expertise spans financial modelling, econometric analysis, risk assessment, and data-driven decision-making. Shuaib has advised organisations on capital allocation strategies, market entry feasibility, and macroeconomic policy frameworks.",
+      "As the driving force behind Noark's founding vision, Shuaib is committed to building a firm that bridges the gap between academic rigour and real-world business impact. He champions evidence-based consulting that empowers leaders to make confident, informed decisions.",
+      "Shuaib holds advanced qualifications in Statistics and Economics and continues to contribute to thought leadership in quantitative finance and economic development."
     ],
     office: "Perugia",
-    email: "j.odhiambo@noarkadvisory.com",
+    email: "s.sharif@noarkadvisory.com",
     linkedin: "#",
-    expertise: ["Corporate Strategy", "Government Advisory", "Infrastructure", "Economic Development", "Organisational Transformation"],
+    expertise: ["Financial Consulting", "Statistical Analysis", "Quantitative Methods", "Econometrics", "Risk Assessment", "Economic Development"],
     highlights: [
-      "Led one of the largest public finance reform initiatives impacting 47 counties",
-      "Advised the CEO of a leading telecom on a $2B digital transformation",
-      "Designed a national infrastructure investment framework for 2020–2030",
-      "Built strategic partnerships between governments and multilateral institutions"
+      "Co-founded Noark Advisory Group with a vision for evidence-based global consulting",
+      "Developed proprietary financial models used across multiple client engagements",
+      "Advised on capital allocation strategies for institutional investors",
+      "Led quantitative analysis for macroeconomic policy advisory projects"
     ],
-    education: ["MBA, London Business School", "BSc Economics, University of Nairobi"],
+    education: ["Advanced Studies in Statistics & Economics"],
     publications: [
-      { title: "The Future of Public-Private Partnerships", date: "March 2026" },
-      { title: "Building Resilient Institutions: A Framework for Governments", date: "January 2026" },
-      { title: "Infrastructure as a Catalyst for Inclusive Growth", date: "October 2025" }
+      { title: "Quantitative Methods in Modern Financial Consulting", date: "March 2026" },
+      { title: "Data-Driven Decision Making for Emerging Markets", date: "January 2026" },
+      { title: "Statistical Frameworks for Economic Resilience", date: "October 2025" }
     ]
   },
   {
@@ -91,43 +90,42 @@ export const leaders: Leader[] = [
     ]
   },
   {
-    id: "amina-wanjiku",
-    name: "Amina Wanjiku",
-    title: "Senior Partner – Digital & AI",
-    image: leader2,
-    focusAreas: ["Digital Transformation", "AI", "Technology Strategy"],
-    bio: "Amina leads Noark's Digital & AI practice, helping enterprises worldwide harness technology to drive growth, efficiency, and competitive advantage.",
+    id: "yahya-yussuf-sharif",
+    name: "Yahya Yussuf Sharif",
+    title: "Associate – Digital Solutions & Mobile Engineering",
+    image: yahya,
+    focusAreas: ["Mobile Development", "Web Development", "Android Engineering"],
+    bio: "Yahya is a dedicated software developer currently pursuing his degree, with a growing expertise in web technologies and Android application development.",
     fullBio: [
-      "Amina Wanjiku is a Senior Partner and the head of Noark Advisory Group's Digital & AI practice. She is a recognised authority on digital transformation, having helped more than 40 organisations across banking, telecom, and healthcare adopt AI-driven strategies.",
-      "Her approach combines deep technical understanding with commercial pragmatism, enabling clients to move from pilot to scale with confidence.",
-      "Prior to Noark, Amina spent a decade at a leading Silicon Valley technology firm, where she led product strategy for emerging markets. She returned with a mission to accelerate the global digital economy.",
-      "Amina holds a Master's in Computer Science from Stanford University and a BSc from Strathmore University. She mentors women in technology and is a board member of the Digital Council."
+      "Yahya Yussuf Sharif is an Associate in Noark Advisory Group's Digital Solutions division, specialising in mobile and web development. Currently pursuing his software development degree, Yahya brings enthusiasm and a strong technical foundation to the firm's digital initiatives.",
+      "Proficient in HTML, CSS, and Android Studio, Yahya contributes to the design and development of mobile applications and responsive web interfaces that support Noark's client-facing digital products.",
+      "His focus on Android engineering positions him at the intersection of mobile technology and business advisory, enabling Noark to deliver solutions that reach clients wherever they are.",
+      "Yahya is recognised for his collaborative approach, attention to detail, and commitment to continuous learning. He represents the firm's investment in cultivating emerging talent to drive future innovation."
     ],
     office: "Perugia",
-    email: "a.wanjiku@noarkadvisory.com",
+    email: "y.sharif@noarkadvisory.com",
     linkedin: "#",
-    expertise: ["Artificial Intelligence", "Digital Strategy", "Data & Analytics", "Product Innovation", "Technology Operating Models"],
+    expertise: ["HTML & CSS", "Android Studio", "Mobile Development", "UI/UX Design", "Responsive Web Design"],
     highlights: [
-      "Built an AI strategy for a major commercial bank, reducing fraud by 60%",
-      "Led a continent-wide digital health platform reaching 15 million users",
-      "Designed the technology roadmap for a $500M fintech expansion",
-      "Advised three central banks on digital currency feasibility studies"
+      "Developed Android prototypes for client engagement tools",
+      "Contributed to the responsive redesign of Noark's web platform",
+      "Built mobile-first interfaces for internal project management tools",
+      "Supported cross-platform testing and quality assurance workflows"
     ],
-    education: ["MS Computer Science, Stanford University", "BSc Information Technology, Strathmore University"],
+    education: ["BSc Software Development (In Progress), University"],
     publications: [
-      { title: "AI: Moving from Hype to Impact", date: "February 2026" },
-      { title: "Digital Leapfrogging: Lessons from Global Tech Ecosystems", date: "November 2025" },
-      { title: "The CTO's Playbook for Responsible AI Adoption", date: "August 2025" }
+      { title: "Mobile-First Design in Enterprise Advisory", date: "January 2026" },
+      { title: "Android Development for Business Applications", date: "November 2025" }
     ]
   }
 ];
 
 export const teamMembers: TeamMember[] = [
-  { id: "tm-1", name: "Sarah Kimani", role: "Principal", practiceArea: "Strategy", industry: "Financial Services", office: "Perugia", image: leader1 },
-  { id: "tm-2", name: "Peter Njoroge", role: "Associate Partner", practiceArea: "Digital & AI", industry: "Technology", office: "Milan", image: leader2 },
-  { id: "tm-3", name: "Fatima Hassan", role: "Principal", practiceArea: "Sustainability", industry: "Energy", office: "London", image: leader3 },
+  { id: "tm-1", name: "Shuaib Yussuf Sharif", role: "Co-Founder & Managing Partner", practiceArea: "Corporate Finance", industry: "Financial Services", office: "Perugia", image: shuaib },
+  { id: "tm-2", name: "Hamza Yussuf Sharif", role: "Associate", practiceArea: "Digital & AI", industry: "Technology", office: "Perugia", image: hamza },
+  { id: "tm-3", name: "Yahya Yussuf Sharif", role: "Associate", practiceArea: "Digital & AI", industry: "Technology", office: "Perugia", image: yahya },
 ];
 
-export const practiceAreas = ["All", "Strategy", "Digital & AI", "Sustainability", "Public Sector", "Corporate Finance", "Risk & Resilience"];
-export const industries = ["All", "Financial Services", "Technology", "Energy", "Government", "Healthcare", "Retail", "Infrastructure"];
-export const offices = ["All", "Perugia", "Milan", "London", "Amsterdam"];
+export const practiceAreas = ["All", "Strategy", "Digital & AI", "Sustainability", "Corporate Finance", "Risk & Resilience"];
+export const industries = ["All", "Financial Services", "Technology", "Energy", "Healthcare"];
+export const offices = ["All", "Perugia"];
