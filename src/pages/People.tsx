@@ -26,7 +26,7 @@ const People = () => {
           onViewProfile={setSelectedMember}
           onEditProfile={setEditingMember}
         />
-        <TeamSection />
+        
         <DiversitySection />
         <JoinCTA />
       </main>
