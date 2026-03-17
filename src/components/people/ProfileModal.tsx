@@ -54,17 +54,13 @@ const ProfileModal = ({ member, onClose }: Props) => (
                 <div className="flex gap-3 mb-8">
                   <a
                     href={`mailto:${member.email}`}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-sans text-sm hover:bg-navy-light transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-sans text-sm hover:bg-primary/90 transition-colors"
                   >
                     <Mail size={14} />
                     Email
-                  </a>
-                  <a
-                    href={member.linkedin}
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-border text-foreground font-sans text-sm hover:bg-secondary transition-colors"
-                  >
-                    <Linkedin size={14} />
-                    LinkedIn
                   </a>
                 </div>
 
