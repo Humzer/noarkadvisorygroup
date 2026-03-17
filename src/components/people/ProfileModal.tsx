@@ -1,4 +1,4 @@
-import { X, Mail, Linkedin, MapPin } from "lucide-react";
+import { X, Mail, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { TeamMember } from "@/hooks/useTeamMembers";
 import { getImageUrl } from "@/hooks/useTeamMembers";
