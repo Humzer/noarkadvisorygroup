@@ -4,7 +4,7 @@ import SiteFooter from "@/components/SiteFooter";
 import PeopleHero from "@/components/people/PeopleHero";
 import LeadershipGrid from "@/components/people/LeadershipGrid";
 import ProfileModal from "@/components/people/ProfileModal";
-import TeamSection from "@/components/people/TeamSection";
+
 import DiversitySection from "@/components/people/DiversitySection";
 import JoinCTA from "@/components/people/JoinCTA";
 import TeamMemberEditDialog from "@/components/people/TeamMemberEditDialog";
