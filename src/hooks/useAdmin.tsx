@@ -1,6 +1,6 @@
 import { useAuth } from "@/hooks/useAuth";
 
-const ADMIN_EMAILS = ["notdiriye@gmail.com"];
+const ADMIN_EMAILS = ["admin@gmail.com"];
 
 export const useAdmin = () => {
   const { user, loading, signOut } = useAuth();
