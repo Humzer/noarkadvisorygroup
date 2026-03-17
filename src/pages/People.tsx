@@ -7,17 +7,25 @@ import ProfileModal from "@/components/people/ProfileModal";
 import TeamSection from "@/components/people/TeamSection";
 import DiversitySection from "@/components/people/DiversitySection";
 import JoinCTA from "@/components/people/JoinCTA";
-import { leaders, type Leader } from "@/data/peopleData";
+import TeamMemberEditDialog from "@/components/people/TeamMemberEditDialog";
+import { useTeamMembers } from "@/hooks/useTeamMembers";
+import type { TeamMember } from "@/hooks/useTeamMembers";
 
 const People = () => {
-  const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
+  const { data: members = [] } = useTeamMembers();
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main>
         <PeopleHero />
-        <LeadershipGrid leaders={leaders} onViewProfile={setSelectedLeader} />
+        <LeadershipGrid
+          members={members}
+          onViewProfile={setSelectedMember}
+          onEditProfile={setEditingMember}
+        />
         <TeamSection />
         <DiversitySection />
         <JoinCTA />
@@ -25,9 +33,16 @@ const People = () => {
       <SiteFooter />
 
       <ProfileModal
-        leader={selectedLeader}
-        onClose={() => setSelectedLeader(null)}
+        member={selectedMember}
+        onClose={() => setSelectedMember(null)}
       />
+
+      {editingMember && (
+        <TeamMemberEditDialog
+          member={editingMember}
+          onClose={() => setEditingMember(null)}
+        />
+      )}
     </div>
   );
 };

@@ -95,6 +95,66 @@ export type Database = {
         }
         Relationships: []
       }
+      team_members: {
+        Row: {
+          bio: string
+          created_at: string
+          display_order: number
+          education: string[]
+          email: string
+          expertise: string[]
+          focus_areas: string[]
+          full_bio: string[]
+          highlights: string[]
+          id: string
+          image_url: string | null
+          linkedin: string
+          name: string
+          office: string
+          publications: Json
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          bio?: string
+          created_at?: string
+          display_order?: number
+          education?: string[]
+          email?: string
+          expertise?: string[]
+          focus_areas?: string[]
+          full_bio?: string[]
+          highlights?: string[]
+          id?: string
+          image_url?: string | null
+          linkedin?: string
+          name: string
+          office?: string
+          publications?: Json
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          bio?: string
+          created_at?: string
+          display_order?: number
+          education?: string[]
+          email?: string
+          expertise?: string[]
+          focus_areas?: string[]
+          full_bio?: string[]
+          highlights?: string[]
+          id?: string
+          image_url?: string | null
+          linkedin?: string
+          name?: string
+          office?: string
+          publications?: Json
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
