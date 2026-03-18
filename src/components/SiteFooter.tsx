@@ -1,4 +1,3 @@
-import { MessageCircle } from "lucide-react";
 import SubscribeDialog from "@/components/SubscribeDialog";
 import noarkLogo from "@/assets/noark-logo.jpeg";
 
