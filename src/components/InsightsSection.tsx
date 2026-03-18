@@ -307,7 +307,7 @@ const InsightsSection = () => {
                       <Eye size={12} />
                       View PDF
                     </div>
-                    {isAdmin && item.uploaded_by && (
+                    {isAdmin && (
                       <button
                         onClick={(e) => { e.stopPropagation(); handleCoverChange(item); }}
                         className="absolute top-3 right-3 bg-primary/70 text-primary-foreground p-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-primary/90"

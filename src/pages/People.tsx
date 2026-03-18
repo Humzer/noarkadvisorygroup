@@ -12,6 +12,7 @@ import { useTeamMembers } from "@/hooks/useTeamMembers";
 import type { TeamMember } from "@/hooks/useTeamMembers";
 
 const People = () => {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   const { data: members = [] } = useTeamMembers();
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
