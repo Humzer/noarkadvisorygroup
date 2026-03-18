@@ -1,4 +1,3 @@
-import { MessageCircle } from "lucide-react";
 import SubscribeDialog from "@/components/SubscribeDialog";
 import noarkLogo from "@/assets/noark-logo.jpeg";
 
@@ -44,15 +43,6 @@ const SiteFooter = () => (
             <p>Via Piero della Francesc, 95</p>
             <p>Perugia, Italy</p>
           </div>
-          <a
-            href="https://wa.me/393520024587"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-accent font-sans text-sm mt-4 hover:text-accent/80 transition-colors"
-          >
-            <MessageCircle size={16} />
-            Contact us on WhatsApp
-          </a>
         </div>
 
         {Object.entries(footerLinks).map(([title, links]) => (
