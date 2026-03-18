@@ -53,7 +53,7 @@ const ProfileModal = ({ member, onClose }: Props) => (
                 </div>
                 <div className="flex gap-3 mb-8">
                   <a
-                    href={`mailto:${member.email}`}
+                    href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(member.email)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
