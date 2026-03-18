@@ -204,9 +204,22 @@ const InsightsSection = () => {
           .upload(coverPath, f, { contentType: f.type });
         if (error) throw error;
         const { data } = supabase.storage.from("resources").getPublicUrl(coverPath);
-        await supabase.from("resources").update({ cover_image_url: data.publicUrl }).eq("id", insight.id);
-        toast({ title: "Cover updated" });
-        fetchInsights();
+
+        if (insight.id.startsWith("default-")) {
+          // For default insights, update the local state with the new cover
+          setDbInsights(prev => prev.map(i => i.id === insight.id ? { ...i, cover_image_url: data.publicUrl, image: data.publicUrl } : i));
+          // Also update the default insights' image in-memory
+          const idx = defaultInsights.findIndex(d => d.id === insight.id);
+          if (idx !== -1) {
+            defaultInsights[idx].image = data.publicUrl;
+            defaultInsights[idx].cover_image_url = data.publicUrl;
+          }
+          toast({ title: "Cover updated" });
+        } else {
+          await supabase.from("resources").update({ cover_image_url: data.publicUrl }).eq("id", insight.id);
+          toast({ title: "Cover updated" });
+          fetchInsights();
+        }
       } catch (err: any) {
         toast({ title: "Failed to update cover", description: err.message, variant: "destructive" });
       }
@@ -307,7 +320,7 @@ const InsightsSection = () => {
                       <Eye size={12} />
                       View PDF
                     </div>
-                    {isAdmin && item.uploaded_by && (
+                    {isAdmin && (
                       <button
                         onClick={(e) => { e.stopPropagation(); handleCoverChange(item); }}
                         className="absolute top-3 right-3 bg-primary/70 text-primary-foreground p-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-primary/90"
