@@ -1,6 +1,7 @@
 import { ArrowRight, Pencil } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useAdmin } from "@/hooks/useAdmin";
+import { useEditMode } from "@/contexts/EditModeContext";
 import type { TeamMember } from "@/hooks/useTeamMembers";
 import { getImageUrl } from "@/hooks/useTeamMembers";
 
