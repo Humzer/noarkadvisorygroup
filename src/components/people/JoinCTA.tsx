@@ -18,8 +18,8 @@ const JoinCTA = () => {
             we'd love to hear from you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="hero" size="lg" onClick={() => navigate("/#careers")}>
-              Explore Careers
+            <Button variant="hero" size="lg" asChild>
+              <a href="mailto:s.sharif@noarkadvisory.com">Get In Touch</a>
             </Button>
             <Button variant="hero-outline" size="lg" onClick={() => navigate("/#careers")}>
               View Open Roles
