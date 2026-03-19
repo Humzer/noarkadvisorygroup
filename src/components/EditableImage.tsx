@@ -18,7 +18,9 @@ interface Props {
 const EditableImage = ({ imageKey, fallback, alt, className, loading = "lazy", children }: Props) => {
   const { user, isAdmin } = useAdmin();
   const { getImage, updateImage } = useSiteImages();
+  const { editMode } = useEditMode();
   const fileRef = useRef<HTMLInputElement>(null);
+  const showEdit = isAdmin && editMode;
 
   const src = getImage(imageKey, fallback);
 
