@@ -23,6 +23,8 @@ const SiteHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
