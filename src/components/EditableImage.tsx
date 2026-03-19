@@ -40,7 +40,7 @@ const EditableImage = ({ imageKey, fallback, alt, className, loading = "lazy", c
       {children ? children(src) : (
         <img src={src} alt={alt} className={className} loading={loading} />
       )}
-      {isAdmin && (
+      {showEdit && (
         <>
           <button
             onClick={(e) => { e.stopPropagation(); fileRef.current?.click(); }}

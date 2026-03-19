@@ -1,18 +1,34 @@
 import { useState } from "react";
-import { Shield, Settings, X, LogOut } from "lucide-react";
+import { Shield, Settings, X, LogOut, Pencil } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAdmin } from "@/hooks/useAdmin";
+import { useEditMode } from "@/contexts/EditModeContext";
 import SignOutDialog from "@/components/SignOutDialog";
 
 const AdminSettings = () => {
   const { user, isAdmin, signOut } = useAdmin();
+  const { editMode, toggleEditMode } = useEditMode();
   const [open, setOpen] = useState(false);
 
   if (!isAdmin || !user) return null;
 
   return (
     <>
+      {/* Edit Mode toggle */}
+      <button
+        onClick={toggleEditMode}
+        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-sans font-semibold tracking-wide transition-colors ${
+          editMode
+            ? "bg-accent text-accent-foreground"
+            : "bg-accent/15 text-accent hover:bg-accent/25"
+        }`}
+        title={editMode ? "Exit Edit Mode" : "Enter Edit Mode"}
+      >
+        <Pencil size={13} />
+        {editMode ? "Editing" : "Edit"}
+      </button>
+
       {/* Admin badge button */}
       <button
         onClick={() => setOpen(true)}
