@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ImagePlus } from "lucide-react";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useSiteImages } from "@/hooks/useSiteImages";
+import { useEditMode } from "@/contexts/EditModeContext";
 import { toast } from "sonner";
 
 interface Props {
