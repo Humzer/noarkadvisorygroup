@@ -1,5 +1,6 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import EditableImage from "@/components/EditableImage";
 import careersImage from "@/assets/careers-image.jpg";
 
 const CareersSection = () => (
@@ -28,11 +29,11 @@ const CareersSection = () => (
       </ScrollReveal>
 
       <ScrollReveal delay={0.2}>
-        <img
-          src={careersImage}
+        <EditableImage
+          imageKey="careers-image"
+          fallback={careersImage}
           alt="Diverse professionals collaborating"
           className="w-full h-[450px] object-cover"
-          loading="lazy"
         />
       </ScrollReveal>
     </div>
