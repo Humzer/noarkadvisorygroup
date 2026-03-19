@@ -31,7 +31,7 @@ const ContactMethodPicker = ({
 }) => (
   <div className="flex flex-col gap-3">
     <a
-      href={`mailto:${email}`}
+      href={`https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(email)}`}
       target="_blank"
       rel="noopener noreferrer"
       className="flex items-center gap-3 p-4 rounded-lg border border-border bg-card hover:bg-secondary transition-colors"
