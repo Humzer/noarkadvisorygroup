@@ -18,7 +18,7 @@ interface ContactDialogProps {
 }
 
 const SHUAIB_EMAIL = "s.sharif@noarkadvisory.com";
-const SHUAIB_WHATSAPP = "https://wa.me/254700000000"; // Replace with actual number
+const SHUAIB_WHATSAPP = "https://wa.me/393520024587";
 
 const ContactMethodPicker = ({
   name,
