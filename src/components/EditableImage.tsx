@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ImagePlus } from "lucide-react";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useSiteImages } from "@/hooks/useSiteImages";
+import { useEditMode } from "@/contexts/EditModeContext";
 import { toast } from "sonner";
 
 interface Props {
@@ -17,7 +18,9 @@ interface Props {
 const EditableImage = ({ imageKey, fallback, alt, className, loading = "lazy", children }: Props) => {
   const { user, isAdmin } = useAdmin();
   const { getImage, updateImage } = useSiteImages();
+  const { editMode } = useEditMode();
   const fileRef = useRef<HTMLInputElement>(null);
+  const showEdit = isAdmin && editMode;
 
   const src = getImage(imageKey, fallback);
 
@@ -37,7 +40,7 @@ const EditableImage = ({ imageKey, fallback, alt, className, loading = "lazy", c
       {children ? children(src) : (
         <img src={src} alt={alt} className={className} loading={loading} />
       )}
-      {isAdmin && (
+      {showEdit && (
         <>
           <button
             onClick={(e) => { e.stopPropagation(); fileRef.current?.click(); }}

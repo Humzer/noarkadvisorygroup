@@ -1,6 +1,7 @@
 import { ArrowRight, Pencil } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useAdmin } from "@/hooks/useAdmin";
+import { useEditMode } from "@/contexts/EditModeContext";
 import type { TeamMember } from "@/hooks/useTeamMembers";
 import { getImageUrl } from "@/hooks/useTeamMembers";
 
@@ -12,6 +13,7 @@ interface Props {
 
 const LeadershipGrid = ({ members, onViewProfile, onEditProfile }: Props) => {
   const { isAdmin } = useAdmin();
+  const { editMode } = useEditMode();
 
   return (
     <section className="py-20 md:py-28 section-padding bg-secondary">
@@ -29,7 +31,7 @@ const LeadershipGrid = ({ members, onViewProfile, onEditProfile }: Props) => {
           {members.map((member, i) => (
             <ScrollReveal key={member.id} delay={i * 0.1}>
               <article className="group bg-card cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-xl relative">
-                {isAdmin && onEditProfile && (
+                {isAdmin && editMode && onEditProfile && (
                   <button
                     onClick={(e) => { e.stopPropagation(); onEditProfile(member); }}
                     className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-accent text-accent-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"

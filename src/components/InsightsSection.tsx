@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { useAdmin } from "@/hooks/useAdmin";
+import { useEditMode } from "@/contexts/EditModeContext";
 import { useToast } from "@/hooks/use-toast";
 import insight1 from "@/assets/insight-1.jpg";
 import insight2 from "@/assets/insight-2.jpg";
@@ -73,6 +74,7 @@ const categoryImages: Record<string, string> = {
 
 const InsightsSection = () => {
   const { user, isAdmin } = useAdmin();
+  const { editMode } = useEditMode();
   const { toast } = useToast();
   const [dbInsights, setDbInsights] = useState<Insight[]>([]);
   const [showUpload, setShowUpload] = useState(false);
@@ -241,7 +243,7 @@ const InsightsSection = () => {
                   Latest Thinking
                 </h2>
               </div>
-              {isAdmin && (
+              {isAdmin && editMode && (
                 <Button
                   variant="corporate"
                   onClick={() => setShowUpload(!showUpload)}
@@ -320,7 +322,7 @@ const InsightsSection = () => {
                       <Eye size={12} />
                       View PDF
                     </div>
-                    {isAdmin && (
+                    {isAdmin && editMode && (
                       <button
                         onClick={(e) => { e.stopPropagation(); handleCoverChange(item); }}
                         className="absolute top-3 right-3 bg-primary/70 text-primary-foreground p-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-primary/90"
