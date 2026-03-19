@@ -49,7 +49,7 @@ const PeopleHero = () => {
               Contact Our Team
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href="mailto:s.sharif@noarkadvisory.com">Join Us</a>
+              <a href="https://mail.google.com/mail/?view=cm&to=s.sharif%40noarkadvisory.com" target="_blank" rel="noopener noreferrer">Join Us</a>
             </Button>
           </motion.div>
         </div>
