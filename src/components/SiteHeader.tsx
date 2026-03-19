@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import AdminSettings from "@/components/AdminSettings";
 import SubscribeDialog from "@/components/SubscribeDialog";
@@ -23,6 +23,8 @@ const SiteHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -34,7 +36,7 @@ const SiteHeader = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
+          scrolled || !isHome
             ? "bg-primary/95 backdrop-blur-md py-3"
             : "bg-transparent py-5"
         }`}
