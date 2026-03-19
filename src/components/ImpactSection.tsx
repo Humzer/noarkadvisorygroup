@@ -1,8 +1,24 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight } from "lucide-react";
+import EditableImage from "@/components/EditableImage";
 import impactMain from "@/assets/impact-main.jpg";
 import insight1 from "@/assets/insight-1.jpg";
 import insight2 from "@/assets/insight-2.jpg";
+
+const stories = [
+  {
+    key: "impact-story-1",
+    image: insight1,
+    title: "Digital Identity Systems for Financial Inclusion",
+    desc: "Partnering with financial regulators globally to build inclusive digital identity frameworks.",
+  },
+  {
+    key: "impact-story-2",
+    image: insight2,
+    title: "Accelerating the Renewable Energy Transition",
+    desc: "Advisory support for large-scale solar and wind energy investment programmes across emerging markets.",
+  },
+];
 
 const ImpactSection = () => (
   <section className="py-24 md:py-32 bg-primary section-padding">
@@ -20,11 +36,11 @@ const ImpactSection = () => (
       <ScrollReveal>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="overflow-hidden">
-            <img
-              src={impactMain}
+            <EditableImage
+              imageKey="impact-main"
+              fallback={impactMain}
               alt="Community development initiative"
               className="w-full h-80 md:h-full object-cover"
-              loading="lazy"
             />
           </div>
           <div className="flex flex-col justify-center py-4">
@@ -45,25 +61,14 @@ const ImpactSection = () => (
 
       {/* Smaller stories */}
       <div className="grid md:grid-cols-2 gap-8">
-        {[
-          {
-            image: insight1,
-            title: "Digital Identity Systems for Financial Inclusion",
-            desc: "Partnering with financial regulators globally to build inclusive digital identity frameworks.",
-          },
-          {
-            image: insight2,
-            title: "Accelerating the Renewable Energy Transition",
-            desc: "Advisory support for large-scale solar and wind energy investment programmes across emerging markets.",
-          },
-        ].map((story, i) => (
+        {stories.map((story, i) => (
           <ScrollReveal key={story.title} delay={i * 0.15}>
             <div className="group flex gap-6 cursor-pointer">
-              <img
-                src={story.image}
+              <EditableImage
+                imageKey={story.key}
+                fallback={story.image}
                 alt={story.title}
                 className="w-32 h-24 object-cover flex-shrink-0"
-                loading="lazy"
               />
               <div>
                 <h4 className="font-serif text-lg font-semibold text-primary-foreground mb-2 group-hover:text-accent transition-colors duration-300">

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import EditableImage from "@/components/EditableImage";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
@@ -12,15 +13,19 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <motion.img
-          src={heroBg}
-          alt="Global business skyline"
-          className="w-full h-full object-cover"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          loading="eager"
-        />
+        <EditableImage imageKey="hero-bg" fallback={heroBg} alt="Global business skyline">
+          {(src) => (
+            <motion.img
+              src={src}
+              alt="Global business skyline"
+              className="w-full h-full object-cover"
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              loading="eager"
+            />
+          )}
+        </EditableImage>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/40" />
       </div>
 

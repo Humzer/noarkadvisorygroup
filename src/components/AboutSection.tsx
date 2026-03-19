@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import EditableImage from "@/components/EditableImage";
 import aboutImage from "@/assets/about-image.jpg";
 
 const AboutSection = () => (
@@ -28,11 +29,11 @@ const AboutSection = () => (
 
       <ScrollReveal delay={0.2}>
         <div className="relative">
-          <img
-            src={aboutImage}
+          <EditableImage
+            imageKey="about-image"
+            fallback={aboutImage}
             alt="Noark Advisory Group team in strategic discussion"
             className="w-full h-[500px] object-cover"
-            loading="lazy"
           />
           <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-accent hidden md:block" />
         </div>

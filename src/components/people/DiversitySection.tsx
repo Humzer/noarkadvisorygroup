@@ -1,15 +1,16 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import EditableImage from "@/components/EditableImage";
 import diversityImage from "@/assets/diversity-image.jpg";
 
 const DiversitySection = () => (
   <section className="py-20 md:py-28 bg-secondary section-padding">
     <div className="container-editorial grid md:grid-cols-2 gap-12 md:gap-20 items-center">
       <ScrollReveal>
-        <img
-          src={diversityImage}
+        <EditableImage
+          imageKey="diversity-image"
+          fallback={diversityImage}
           alt="Diverse team of professionals"
           className="w-full h-[400px] object-cover"
-          loading="lazy"
         />
       </ScrollReveal>
 
