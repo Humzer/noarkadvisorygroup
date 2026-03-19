@@ -243,7 +243,7 @@ const InsightsSection = () => {
                   Latest Thinking
                 </h2>
               </div>
-              {isAdmin && (
+              {isAdmin && editMode && (
                 <Button
                   variant="corporate"
                   onClick={() => setShowUpload(!showUpload)}
