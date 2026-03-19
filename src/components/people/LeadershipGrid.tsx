@@ -13,6 +13,7 @@ interface Props {
 
 const LeadershipGrid = ({ members, onViewProfile, onEditProfile }: Props) => {
   const { isAdmin } = useAdmin();
+  const { editMode } = useEditMode();
 
   return (
     <section className="py-20 md:py-28 section-padding bg-secondary">
