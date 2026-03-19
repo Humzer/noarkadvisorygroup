@@ -74,6 +74,7 @@ const categoryImages: Record<string, string> = {
 
 const InsightsSection = () => {
   const { user, isAdmin } = useAdmin();
+  const { editMode } = useEditMode();
   const { toast } = useToast();
   const [dbInsights, setDbInsights] = useState<Insight[]>([]);
   const [showUpload, setShowUpload] = useState(false);
