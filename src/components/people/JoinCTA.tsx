@@ -25,8 +25,8 @@ const JoinCTA = () => {
               <Button variant="hero" size="lg" onClick={() => setShowContact(true)}>
                 Get In Touch
               </Button>
-              <Button variant="hero-outline" size="lg" onClick={() => navigate("/#careers")}>
-                View Open Roles
+              <Button variant="hero-outline" size="lg" asChild>
+                <a href="/#careers">View Open Roles</a>
               </Button>
             </div>
           </ScrollReveal>

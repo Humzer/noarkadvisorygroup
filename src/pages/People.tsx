@@ -4,10 +4,10 @@ import SiteFooter from "@/components/SiteFooter";
 import PeopleHero from "@/components/people/PeopleHero";
 import LeadershipGrid from "@/components/people/LeadershipGrid";
 import ProfileModal from "@/components/people/ProfileModal";
-
 import DiversitySection from "@/components/people/DiversitySection";
 import JoinCTA from "@/components/people/JoinCTA";
 import TeamMemberEditDialog from "@/components/people/TeamMemberEditDialog";
+import AddTeamMemberDialog from "@/components/people/AddTeamMemberDialog";
 import { useTeamMembers } from "@/hooks/useTeamMembers";
 import type { TeamMember } from "@/hooks/useTeamMembers";
 
@@ -16,6 +16,7 @@ const People = () => {
   const { data: members = [] } = useTeamMembers();
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
+  const [showAddMember, setShowAddMember] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -26,8 +27,8 @@ const People = () => {
           members={members}
           onViewProfile={setSelectedMember}
           onEditProfile={setEditingMember}
+          onAddMember={() => setShowAddMember(true)}
         />
-        
         <DiversitySection />
         <JoinCTA />
       </main>
@@ -44,6 +45,11 @@ const People = () => {
           onClose={() => setEditingMember(null)}
         />
       )}
+
+      <AddTeamMemberDialog
+        open={showAddMember}
+        onClose={() => setShowAddMember(false)}
+      />
     </div>
   );
 };

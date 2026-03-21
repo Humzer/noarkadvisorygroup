@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { ArrowRight, Upload, Trash2, Plus, X, FileText, Eye, ImagePlus } from "lucide-react";
+import { ArrowRight, Upload, Trash2, Plus, X, FileText, Eye, ImagePlus, BookOpen, Calendar, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useEditMode } from "@/contexts/EditModeContext";
 import { useToast } from "@/hooks/use-toast";
+import { motion, AnimatePresence } from "framer-motion";
 import insight1 from "@/assets/insight-1.jpg";
 import insight2 from "@/assets/insight-2.jpg";
 import insight3 from "@/assets/insight-3.jpg";
@@ -72,6 +73,11 @@ const categoryImages: Record<string, string> = {
   "General": insight2,
 };
 
+const formatDate = (dateStr: string) => {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+};
+
 const InsightsSection = () => {
   const { user, isAdmin } = useAdmin();
   const { editMode } = useEditMode();
@@ -88,6 +94,8 @@ const InsightsSection = () => {
   const [viewingPdf, setViewingPdf] = useState<Insight | null>(null);
 
   const allInsights = [...dbInsights, ...defaultInsights];
+  const featuredInsight = allInsights[0];
+  const restInsights = allInsights.slice(1);
 
   useEffect(() => {
     fetchInsights();
@@ -123,7 +131,6 @@ const InsightsSection = () => {
     if (!file || !title.trim() || !user) return;
     setUploading(true);
     try {
-      // Upload PDF
       const filePath = `${user.id}/${Date.now()}-${file.name}`;
       const { error: uploadError } = await supabase.storage
         .from("resources")
@@ -134,7 +141,6 @@ const InsightsSection = () => {
         .from("resources")
         .getPublicUrl(filePath);
 
-      // Upload cover image if provided
       let coverUrl: string | null = null;
       if (coverFile) {
         const coverPath = `${user.id}/covers/${Date.now()}-${coverFile.name}`;
@@ -208,15 +214,13 @@ const InsightsSection = () => {
         const { data } = supabase.storage.from("resources").getPublicUrl(coverPath);
 
         if (insight.id.startsWith("default-")) {
-          // For default insights, update the local state with the new cover
-          setDbInsights(prev => prev.map(i => i.id === insight.id ? { ...i, cover_image_url: data.publicUrl, image: data.publicUrl } : i));
-          // Also update the default insights' image in-memory
           const idx = defaultInsights.findIndex(d => d.id === insight.id);
           if (idx !== -1) {
             defaultInsights[idx].image = data.publicUrl;
             defaultInsights[idx].cover_image_url = data.publicUrl;
           }
           toast({ title: "Cover updated" });
+          setDbInsights(prev => [...prev]); // force re-render
         } else {
           await supabase.from("resources").update({ cover_image_url: data.publicUrl }).eq("id", insight.id);
           toast({ title: "Cover updated" });
@@ -229,19 +233,87 @@ const InsightsSection = () => {
     input.click();
   };
 
+  const InsightCard = ({ item, featured = false }: { item: Insight; featured?: boolean }) => (
+    <article
+      className={`group cursor-pointer transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl relative overflow-hidden rounded-xl ${
+        featured ? "bg-card md:col-span-2 md:grid md:grid-cols-2" : "bg-card flex flex-col"
+      }`}
+      onClick={() => setViewingPdf(item)}
+    >
+      <div className={`overflow-hidden relative ${featured ? "h-64 md:h-full" : "h-56"}`}>
+        <img
+          src={item.image || insight2}
+          alt={item.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" />
+        <div className="absolute top-4 left-4">
+          <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-sans font-semibold tracking-wide uppercase">
+            {item.category}
+          </span>
+        </div>
+        {isAdmin && editMode && (
+          <button
+            onClick={(e) => { e.stopPropagation(); handleCoverChange(item); }}
+            className="absolute top-4 right-4 bg-background/80 text-foreground p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-background"
+            title="Change cover image"
+          >
+            <ImagePlus size={16} />
+          </button>
+        )}
+      </div>
+      <div className={`p-6 flex flex-col ${featured ? "justify-center" : "flex-1"}`}>
+        <div className="flex items-center gap-2 text-muted-foreground text-xs font-sans mb-3">
+          <Calendar size={12} />
+          {formatDate(item.created_at)}
+        </div>
+        <h3 className={`font-serif font-bold text-foreground leading-snug mb-3 group-hover:text-accent transition-colors duration-300 ${
+          featured ? "text-2xl md:text-3xl" : "text-lg"
+        }`}>
+          {item.title}
+        </h3>
+        <p className={`text-muted-foreground font-sans leading-relaxed mb-5 ${
+          featured ? "text-base" : "text-sm flex-1"
+        }`}>
+          {item.description}
+        </p>
+        <div className="flex items-center justify-between">
+          <span className="inline-flex items-center gap-2 text-accent font-sans text-sm font-semibold group-hover:gap-3 transition-all duration-300">
+            <BookOpen size={14} />
+            Read Insight
+            <ArrowRight size={14} />
+          </span>
+          {isAdmin && editMode && item.uploaded_by && (
+            <button
+              onClick={(e) => { e.stopPropagation(); handleDelete(item); }}
+              className="text-muted-foreground hover:text-destructive transition-colors p-1.5 rounded-full hover:bg-destructive/10"
+              title="Delete insight"
+            >
+              <Trash2 size={16} />
+            </button>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+
   return (
     <>
       <section id="insights" className="py-24 md:py-32 bg-secondary section-padding">
         <div className="container-editorial">
           <ScrollReveal>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
               <div>
                 <p className="text-accent font-sans text-sm tracking-[0.2em] uppercase mb-4">
                   Featured Insights
                 </p>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-3">
                   Latest Thinking
                 </h2>
+                <p className="text-muted-foreground font-sans text-lg max-w-xl">
+                  Explore our research, frameworks, and strategic perspectives shaping the future.
+                </p>
               </div>
               {isAdmin && editMode && (
                 <Button
@@ -262,7 +334,7 @@ const InsightsSection = () => {
           {/* Admin Upload Form */}
           {showUpload && isAdmin && (
             <ScrollReveal>
-              <div className="bg-card border border-border p-6 mb-10 space-y-4">
+              <div className="bg-card border border-border rounded-xl p-6 mb-12 space-y-4">
                 <h3 className="font-serif text-lg font-semibold text-foreground">
                   Publish New Insight (PDF)
                 </h3>
@@ -291,7 +363,7 @@ const InsightsSection = () => {
                   </div>
                 </div>
                 {coverPreview && (
-                  <div className="w-32 h-20 rounded overflow-hidden border border-border">
+                  <div className="w-32 h-20 rounded-lg overflow-hidden border border-border">
                     <img src={coverPreview} alt="Cover preview" className="w-full h-full object-cover" />
                   </div>
                 )}
@@ -303,113 +375,93 @@ const InsightsSection = () => {
             </ScrollReveal>
           )}
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {allInsights.map((item, i) => (
-              <ScrollReveal key={item.id} delay={i * 0.15}>
-                <article
-                  className="group bg-card h-full flex flex-col cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-xl"
-                  onClick={() => setViewingPdf(item)}
-                >
-                  <div className="overflow-hidden relative">
-                    <img
-                      src={item.image || insight2}
-                      alt={item.title}
-                      className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-primary/80 text-primary-foreground px-2.5 py-1 rounded text-xs font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Eye size={12} />
-                      View PDF
-                    </div>
-                    {isAdmin && editMode && (
-                      <button
-                        onClick={(e) => { e.stopPropagation(); handleCoverChange(item); }}
-                        className="absolute top-3 right-3 bg-primary/70 text-primary-foreground p-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-primary/90"
-                        title="Change cover image"
-                      >
-                        <ImagePlus size={14} />
-                      </button>
-                    )}
-                  </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <span className="text-accent font-sans text-xs tracking-[0.15em] uppercase font-semibold mb-3">
-                      {item.category}
-                    </span>
-                    <h3 className="font-serif text-xl font-semibold text-foreground mb-3 leading-snug group-hover:text-accent transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-muted-foreground font-sans text-sm leading-relaxed mb-4 flex-1">
-                      {item.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 text-foreground font-sans text-sm font-medium group-hover:text-accent transition-colors duration-300">
-                        <FileText size={14} />
-                        Read More
-                        <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
-                      </span>
-                      {isAdmin && item.uploaded_by && (
-                        <button
-                          onClick={(e) => { e.stopPropagation(); handleDelete(item); }}
-                          className="text-muted-foreground hover:text-destructive transition-colors p-1"
-                          title="Delete insight"
-                        >
-                          <Trash2 size={16} />
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                </article>
+          {/* Featured + Grid Layout */}
+          {allInsights.length > 0 && (
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Featured large card */}
+              <ScrollReveal>
+                <InsightCard item={featuredInsight} featured />
               </ScrollReveal>
-            ))}
-          </div>
+
+              {/* Remaining cards */}
+              {restInsights.map((item, i) => (
+                <ScrollReveal key={item.id} delay={(i + 1) * 0.1}>
+                  <InsightCard item={item} />
+                </ScrollReveal>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* PDF Viewer Modal */}
-      {viewingPdf && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div
-            className="absolute inset-0 bg-primary/60 backdrop-blur-sm"
-            onClick={() => setViewingPdf(null)}
-          />
-          <div className="relative w-[95vw] h-[90vh] max-w-5xl bg-card rounded-lg shadow-2xl overflow-hidden flex flex-col z-10">
-            <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-secondary">
-              <div className="flex items-center gap-3 min-w-0">
-                <FileText size={18} className="text-accent shrink-0" />
-                <div className="min-w-0">
-                  <h3 className="font-serif text-sm font-semibold text-foreground truncate">{viewingPdf.title}</h3>
-                  <p className="text-xs text-muted-foreground font-sans">{viewingPdf.category}</p>
+      {/* Enhanced PDF Viewer Modal */}
+      <AnimatePresence>
+        {viewingPdf && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-foreground/70 backdrop-blur-md"
+              onClick={() => setViewingPdf(null)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="fixed inset-3 md:inset-6 lg:inset-10 z-50 flex flex-col bg-background rounded-2xl shadow-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-card">
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                    <BookOpen size={20} className="text-accent" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-serif text-base font-bold text-foreground truncate">{viewingPdf.title}</h3>
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground font-sans">
+                      <span className="text-accent font-semibold uppercase tracking-wider">{viewingPdf.category}</span>
+                      <span>•</span>
+                      <span>{formatDate(viewingPdf.created_at)}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Button variant="outline" size="sm" asChild>
+                    <a href={viewingPdf.file_url} download={viewingPdf.file_name}>
+                      <Download size={14} className="mr-1.5" />
+                      Download
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="sm" asChild>
+                    <a href={viewingPdf.file_url} target="_blank" rel="noopener noreferrer">
+                      <Eye size={14} className="mr-1.5" />
+                      New Tab
+                    </a>
+                  </Button>
+                  <button
+                    onClick={() => setViewingPdf(null)}
+                    className="w-9 h-9 flex items-center justify-center rounded-full bg-secondary text-foreground hover:bg-accent hover:text-accent-foreground transition-colors ml-1"
+                  >
+                    <X size={18} />
+                  </button>
                 </div>
               </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <a
-                  href={viewingPdf.file_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-sans text-accent hover:underline"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Open in new tab ↗
-                </a>
-                <button
-                  onClick={() => setViewingPdf(null)}
-                  className="text-muted-foreground hover:text-foreground transition-colors ml-2"
-                >
-                  <X size={20} />
-                </button>
+
+              {/* PDF Content */}
+              <div className="flex-1 bg-muted">
+                <iframe
+                  src={viewingPdf.file_url}
+                  className="w-full h-full border-0"
+                  title={viewingPdf.title}
+                />
               </div>
-            </div>
-            <div className="flex-1">
-              <iframe
-                src={viewingPdf.file_url}
-                className="w-full h-full border-0"
-                title={viewingPdf.title}
-              />
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 };
