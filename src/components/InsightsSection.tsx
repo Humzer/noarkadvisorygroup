@@ -284,7 +284,7 @@ const InsightsSection = () => {
             Read Insight
             <ArrowRight size={14} />
           </span>
-          {isAdmin && editMode && item.uploaded_by && (
+          {isAdmin && editMode && !item.id.startsWith("default-") && (
             <button
               onClick={(e) => { e.stopPropagation(); handleDelete(item); }}
               className="text-muted-foreground hover:text-destructive transition-colors p-1.5 rounded-full hover:bg-destructive/10"

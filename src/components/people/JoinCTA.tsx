@@ -8,6 +8,14 @@ const JoinCTA = () => {
   const navigate = useNavigate();
   const [showContact, setShowContact] = useState(false);
 
+  const handleViewRoles = () => {
+    navigate("/");
+    setTimeout(() => {
+      const el = document.getElementById("careers");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  };
+
   return (
     <>
       <section className="py-20 md:py-28 bg-primary section-padding">
@@ -25,8 +33,8 @@ const JoinCTA = () => {
               <Button variant="hero" size="lg" onClick={() => setShowContact(true)}>
                 Get In Touch
               </Button>
-              <Button variant="hero-outline" size="lg" asChild>
-                <a href="/#careers">View Open Roles</a>
+              <Button variant="hero-outline" size="lg" onClick={handleViewRoles}>
+                View Open Roles
               </Button>
             </div>
           </ScrollReveal>
