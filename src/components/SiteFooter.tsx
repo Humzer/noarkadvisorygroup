@@ -1,5 +1,5 @@
 import SubscribeDialog from "@/components/SubscribeDialog";
-import noarkLogo from "@/assets/noark-logo.jpeg";
+import noarkLogo from "@/assets/noark-logo.png";
 
 const footerLinks = {
   Industries: [
