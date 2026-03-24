@@ -38,7 +38,7 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-accent font-sans text-sm tracking-[0.2em] uppercase mb-6"
           >
-            Noark Advisory Group — Global Reach
+            Noark Advisory Council — Global Reach
           </motion.p>
 
           <motion.h1

@@ -43,7 +43,7 @@ const SiteHeader = () => {
       >
         <div className="section-padding container-editorial flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src={noarkLogo} alt="Noark Advisory Group" className="h-8 md:h-10 rounded-sm" />
+            <img src={noarkLogo} alt="Noark Advisory Council" className="h-8 md:h-10 rounded-sm" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -124,7 +124,7 @@ const SiteHeader = () => {
               className="fixed top-0 right-0 bottom-0 w-80 bg-primary z-50 flex flex-col"
             >
               <div className="flex items-center justify-between p-6">
-                <img src={noarkLogo} alt="Noark Advisory Group" className="h-8 rounded-sm" />
+                <img src={noarkLogo} alt="Noark Advisory Council" className="h-8 rounded-sm" />
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="text-primary-foreground"

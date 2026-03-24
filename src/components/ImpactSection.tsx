@@ -51,7 +51,7 @@ const ImpactSection = () => (
               Empowering Communities Through Infrastructure Innovation
             </h3>
             <p className="text-primary-foreground/60 font-sans leading-relaxed mb-6">
-              Working alongside governments worldwide, Noark Advisory Group
+              Working alongside governments worldwide, Noark Advisory Council
               helped design community-led infrastructure programmes that have
               improved access to clean water for over 200,000 residents across multiple regions.
             </p>

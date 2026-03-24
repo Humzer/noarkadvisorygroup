@@ -34,7 +34,7 @@ const SiteFooter = () => (
     <div className="container-editorial">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
         <div className="col-span-2 md:col-span-1">
-          <img src={noarkLogo} alt="Noark Advisory Group" className="h-10 rounded-sm mb-4" />
+          <img src={noarkLogo} alt="Noark Advisory Council" className="h-10 rounded-sm mb-4" />
           <p className="text-primary-foreground/50 font-sans text-sm leading-relaxed mb-4">
             Strategic Foresight & Resilience. Helping organisations worldwide
             navigate complexity and drive transformation.
@@ -78,7 +78,7 @@ const SiteFooter = () => (
           <a href="/#about" className="hover:text-primary-foreground/70 transition-colors">
             Cookie Notice
           </a>
-          <span>© 2026 Noark Advisory Group</span>
+          <span>© 2026 Noark Advisory Council</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-primary-foreground/50 text-sm font-sans">Stay updated:</span>

@@ -36,9 +36,9 @@ export const leaders: Leader[] = [
     title: "Co-Founder & Managing Partner",
     image: shuaib,
     focusAreas: ["Finance", "Statistics", "Quantitative Economics"],
-    bio: "Shuaib is the co-founder of Noark Advisory Group, bringing deep expertise in statistics, financial consulting, and quantitative methods for economics to guide the firm's strategic vision.",
+    bio: "Shuaib is the co-founder of Noark Advisory Council, bringing deep expertise in statistics, financial consulting, and quantitative methods for economics to guide the firm's strategic vision.",
     fullBio: [
-      "Shuaib Yussuf Sharif is the Co-Founder and Managing Partner of Noark Advisory Group. A skilled statistician and finance consultant, he combines rigorous quantitative analysis with strategic foresight to deliver transformative outcomes for clients across multiple sectors.",
+      "Shuaib Yussuf Sharif is the Co-Founder and Managing Partner of Noark Advisory Council. A skilled statistician and finance consultant, he combines rigorous quantitative analysis with strategic foresight to deliver transformative outcomes for clients across multiple sectors.",
       "His expertise spans financial modelling, econometric analysis, risk assessment, and data-driven decision-making. Shuaib has advised organisations on capital allocation strategies, market entry feasibility, and macroeconomic policy frameworks.",
       "As the driving force behind Noark's founding vision, Shuaib is committed to building a firm that bridges the gap between academic rigour and real-world business impact. He champions evidence-based consulting that empowers leaders to make confident, informed decisions.",
       "Shuaib holds advanced qualifications in Statistics and Economics and continues to contribute to thought leadership in quantitative finance and economic development."
@@ -48,7 +48,7 @@ export const leaders: Leader[] = [
     linkedin: "#",
     expertise: ["Financial Consulting", "Statistical Analysis", "Quantitative Methods", "Econometrics", "Risk Assessment", "Economic Development"],
     highlights: [
-      "Co-founded Noark Advisory Group with a vision for evidence-based global consulting",
+      "Co-founded Noark Advisory Council with a vision for evidence-based global consulting",
       "Developed proprietary financial models used across multiple client engagements",
       "Advised on capital allocation strategies for institutional investors",
       "Led quantitative analysis for macroeconomic policy advisory projects"
@@ -68,7 +68,7 @@ export const leaders: Leader[] = [
     focusAreas: ["Web Development", "Software Engineering", "AI & Automation"],
     bio: "Hamza is a driven technologist and software engineer currently pursuing his university degree, already making an impact through his expertise in full-stack development and emerging technologies.",
     fullBio: [
-      "Hamza Yussuf Sharif is an Associate at Noark Advisory Group's Digital Solutions & Engineering division. Currently completing his university studies, Hamza brings a rare combination of academic rigour and hands-on technical expertise to every engagement.",
+      "Hamza Yussuf Sharif is an Associate at Noark Advisory Council's Digital Solutions & Engineering division. Currently completing his university studies, Hamza brings a rare combination of academic rigour and hands-on technical expertise to every engagement.",
       "With proficiency spanning HTML, CSS, JavaScript, Python, and C, Hamza has contributed to client-facing digital platforms, internal automation tools, and data-driven prototypes that accelerate Noark's consulting delivery.",
       "Hamza is passionate about leveraging technology to solve real-world problems. His work at Noark focuses on building scalable web applications, developing automation pipelines, and supporting the firm's AI-driven advisory tools.",
       "He is recognised within the firm for his rapid learning ability, collaborative spirit, and commitment to writing clean, maintainable code. Hamza represents the next generation of technology leaders shaping the future of advisory services."
@@ -97,7 +97,7 @@ export const leaders: Leader[] = [
     focusAreas: ["Mobile Development", "Web Development", "Android Engineering"],
     bio: "Yahya is a dedicated software developer currently pursuing his degree, with a growing expertise in web technologies and Android application development.",
     fullBio: [
-      "Yahya Yussuf Sharif is an Associate in Noark Advisory Group's Digital Solutions division, specialising in mobile and web development. Currently pursuing his software development degree, Yahya brings enthusiasm and a strong technical foundation to the firm's digital initiatives.",
+      "Yahya Yussuf Sharif is an Associate in Noark Advisory Council's Digital Solutions division, specialising in mobile and web development. Currently pursuing his software development degree, Yahya brings enthusiasm and a strong technical foundation to the firm's digital initiatives.",
       "Proficient in HTML, CSS, and Android Studio, Yahya contributes to the design and development of mobile applications and responsive web interfaces that support Noark's client-facing digital products.",
       "His focus on Android engineering positions him at the intersection of mobile technology and business advisory, enabling Noark to deliver solutions that reach clients wherever they are.",
       "Yahya is recognised for his collaborative approach, attention to detail, and commitment to continuous learning. He represents the firm's investment in cultivating emerging talent to drive future innovation."
