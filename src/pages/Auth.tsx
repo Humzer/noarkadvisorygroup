@@ -86,7 +86,7 @@ const Auth = () => {
       <div className="hidden lg:flex lg:w-1/2 bg-primary relative items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-hsl(var(--navy-light))" />
         <div className="relative z-10 p-16 max-w-md">
-          <img src={noarkLogo} alt="Noark Advisory Group" className="h-12 rounded-sm mb-10" />
+          <img src={noarkLogo} alt="Noark Advisory Council" className="h-12 rounded-sm mb-10" />
           <h2 className="text-3xl font-serif font-bold text-primary-foreground leading-tight mb-6">
             Strategic Foresight
             <br />
@@ -117,7 +117,7 @@ const Auth = () => {
           </button>
 
           <div className="lg:hidden mb-8">
-            <img src={noarkLogo} alt="Noark Advisory Group" className="h-10 rounded-sm" />
+            <img src={noarkLogo} alt="Noark Advisory Council" className="h-10 rounded-sm" />
           </div>
 
           <h1 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-2">
@@ -125,7 +125,7 @@ const Auth = () => {
           </h1>
           <p className="text-muted-foreground font-sans text-sm mb-8">
             {isSignUp
-              ? "Join Noark Advisory Group's community"
+              ? "Join Noark Advisory Council's community"
               : "Sign in to your Noark Advisory account"}
           </p>
 
