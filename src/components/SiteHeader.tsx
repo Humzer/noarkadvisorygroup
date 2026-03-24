@@ -7,7 +7,7 @@ import { useAuth } from "@/hooks/useAuth";
 import AdminSettings from "@/components/AdminSettings";
 import SubscribeDialog from "@/components/SubscribeDialog";
 import SignOutDialog from "@/components/SignOutDialog";
-import noarkLogo from "@/assets/noark-logo.jpeg";
+import noarkLogo from "@/assets/noark-logo.png";
 
 const navItems = [
   { label: "Industries", href: "/#industries" },
