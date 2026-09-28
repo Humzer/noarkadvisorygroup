@@ -298,7 +298,7 @@ const InsightsSection = () => {
   );
 
   return (
-    <>
+
       <section id="insights" className="py-24 md:py-32 bg-secondary section-padding">
         <div className="container-editorial">
           <ScrollReveal>
@@ -393,75 +393,6 @@ const InsightsSection = () => {
         </div>
       </section>
 
-      {/* Enhanced PDF Viewer Modal */}
-      <AnimatePresence>
-        {viewingPdf && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-foreground/70 backdrop-blur-md"
-              onClick={() => setViewingPdf(null)}
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed inset-3 md:inset-6 lg:inset-10 z-50 flex flex-col bg-background rounded-2xl shadow-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-card">
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                    <BookOpen size={20} className="text-accent" />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-serif text-base font-bold text-foreground truncate">{viewingPdf.title}</h3>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground font-sans">
-                      <span className="text-accent font-semibold uppercase tracking-wider">{viewingPdf.category}</span>
-                      <span>•</span>
-                      <span>{formatDate(viewingPdf.created_at)}</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 shrink-0">
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={viewingPdf.file_url} download={viewingPdf.file_name}>
-                      <Download size={14} className="mr-1.5" />
-                      Download
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={viewingPdf.file_url} target="_blank" rel="noopener noreferrer">
-                      <Eye size={14} className="mr-1.5" />
-                      New Tab
-                    </a>
-                  </Button>
-                  <button
-                    onClick={() => setViewingPdf(null)}
-                    className="w-9 h-9 flex items-center justify-center rounded-full bg-secondary text-foreground hover:bg-accent hover:text-accent-foreground transition-colors ml-1"
-                  >
-                    <X size={18} />
-                  </button>
-                </div>
-              </div>
-
-              {/* PDF Content */}
-              <div className="flex-1 bg-muted">
-                <iframe
-                  src={viewingPdf.file_url}
-                  className="w-full h-full border-0"
-                  title={viewingPdf.title}
-                />
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
   );
 };
 
