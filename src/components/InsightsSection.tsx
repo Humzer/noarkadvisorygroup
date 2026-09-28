@@ -236,7 +236,15 @@ const InsightsSection = () => {
       className={`group cursor-pointer transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl relative overflow-hidden rounded-xl ${
         featured ? "bg-card md:col-span-2 md:grid md:grid-cols-2" : "bg-card flex flex-col"
       }`}
-      onClick={() => window.open(item.file_url, "_blank", "noopener,noreferrer")}
+      onClick={() => {
+        const a = document.createElement("a");
+        a.href = item.file_url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }}
     >
       <div className={`overflow-hidden relative ${featured ? "h-64 md:h-full" : "h-56"}`}>
         <img
