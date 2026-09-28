@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { ArrowRight, Upload, Trash2, Plus, X, FileText, Eye, ImagePlus, BookOpen, Calendar, Download } from "lucide-react";
+import { ArrowRight, Upload, Trash2, Plus, X, BookOpen, Calendar, ImagePlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -91,7 +91,6 @@ const InsightsSection = () => {
   const [file, setFile] = useState<File | null>(null);
   const [coverFile, setCoverFile] = useState<File | null>(null);
   const [coverPreview, setCoverPreview] = useState<string | null>(null);
-  const [viewingPdf, setViewingPdf] = useState<Insight | null>(null);
 
   const allInsights = [...dbInsights, ...defaultInsights];
   const featuredInsight = allInsights[0];
@@ -238,7 +237,7 @@ const InsightsSection = () => {
       className={`group cursor-pointer transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl relative overflow-hidden rounded-xl ${
         featured ? "bg-card md:col-span-2 md:grid md:grid-cols-2" : "bg-card flex flex-col"
       }`}
-      onClick={() => setViewingPdf(item)}
+      onClick={() => window.open(item.file_url, "_blank", "noopener,noreferrer")}
     >
       <div className={`overflow-hidden relative ${featured ? "h-64 md:h-full" : "h-56"}`}>
         <img
